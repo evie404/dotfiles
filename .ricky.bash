@@ -89,3 +89,16 @@ function sd {
     git stash drop stash@{$1}
   fi
 }
+
+function sp {
+  if [ -z "$*" ]
+  then
+    git stash pop stash@{0}
+  else
+    git stash pop stash@{$1}
+  fi
+}
+
+function progress {
+  git commit -am 'progress'
+}
