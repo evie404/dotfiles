@@ -102,3 +102,7 @@ function sp {
 function progress {
   git commit -am 'progress'
 }
+
+function zr {
+  zeus rspec $1
+}
