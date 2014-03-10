@@ -99,6 +99,10 @@ function sp {
   fi
 }
 
+function sl {
+  git stash list
+}
+
 function progress {
   git commit -am 'progress'
 }
