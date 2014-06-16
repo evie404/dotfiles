@@ -1,3 +1,5 @@
+complete -o default -W "\$(git branch 2>/dev/null | cut -c 3-)" git
+
 function rv {
   ruby -v
 }
@@ -34,12 +36,41 @@ function greset {
   git reset --soft HEAD^
 }
 
+function gcp {
+  git cherry-pick $1
+}
+
+function gl {
+  git log --oneline $1
+}
+
 function gs {
-  git status
+  git show $1
+}
+
+function grc {
+  git add .
+  git rebase --continue
+}
+
+function grbc {
+  grc
 }
 
 function gp {
   git pull
+}
+
+function gpom {
+  git pull origin master
+}
+
+function gf {
+  git fetch
+}
+
+function gb {
+  git blame $*
 }
 
 function testint {
@@ -108,5 +139,5 @@ function progress {
 }
 
 function zr {
-  zeus rspec $1
+  zeus rspec $*
 }
