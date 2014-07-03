@@ -91,6 +91,11 @@ function workspace {
   cd ~/workspace
 }
 
+function mm {
+  umas
+  git merge master --no-edit
+}
+
 function rmas {
   umas
   git rebase master
@@ -98,7 +103,7 @@ function rmas {
 
 function umas {
   git checkout master
-  git pull
+  git pull origin master
   git checkout -
 }
 
