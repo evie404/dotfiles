@@ -41,7 +41,12 @@ function gcp {
 }
 
 function gl {
-  git log --oneline $1
+  if [ -z "$*" ]
+  then
+    git log master.. --oneline
+  else
+    git log $1 --oneline
+  fi
 }
 
 function gs {
