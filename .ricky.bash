@@ -101,6 +101,18 @@ function workspace {
   cd ~/workspace
 }
 
+function cosite {
+  cd ~/workspace/cosite
+}
+
+function tourgen {
+  cd ~/workspace/tourgenerator
+}
+
+function dotfiles {
+  cd ~/.dotfiles
+}
+
 function mm {
   umas
   git merge master --no-edit
