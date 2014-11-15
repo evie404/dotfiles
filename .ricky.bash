@@ -113,7 +113,7 @@ function rmas {
 
 function umas {
   git checkout master
-  git pull origin master
+  gpom
   git checkout -
 }
 
