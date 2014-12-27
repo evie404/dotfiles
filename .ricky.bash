@@ -129,6 +129,10 @@ function umas {
   git checkout -
 }
 
+function serveshit {
+  python -m SimpleHTTPServer
+}
+
 function 5times {
   for i in {1..5}
     do $*
