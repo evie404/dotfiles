@@ -177,3 +177,8 @@ function progress {
 function zr {
   zeus rspec $*
 }
+
+function up {
+  git fetch upstream
+  git merge upstream/master
+}
