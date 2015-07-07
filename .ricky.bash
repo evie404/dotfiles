@@ -1,7 +1,7 @@
 complete -o default -W "\$(git branch 2>/dev/null | cut -c 3-)" git
 
-if [ -f ~/git-prompt.sh ]; then
-  . ~/git-prompt.sh
+if [ -f /usr/local/etc/bash_completion.d/git-prompt.sh ]; then
+  . /usr/local/etc/bash_completion.d/git-prompt.sh
 fi
 
 # source /usr/local/share/git-core/git-prompt.sh
