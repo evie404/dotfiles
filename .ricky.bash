@@ -7,6 +7,8 @@ fi
 # source /usr/local/share/git-core/git-prompt.sh
 export PS1='\[\033[01;32m\]\u@\h\[\033[01;34m\] \w\[\033[01;33m\]$(__git_ps1)\[\033[01;34m\] \$\[\033[00m\] '
 
+export GEM_EDITOR="subl"
+
 # source /usr/local/share/git-core/git-prompt.sh
 # PS1="[\[\033[32m\]\w]\[\033[0m\]\$(__git_ps1)\n\[\033[1;36m\]\u\[\033[32m\]$ \[\\033[0m\]"
 
