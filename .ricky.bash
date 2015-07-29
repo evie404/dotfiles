@@ -139,6 +139,12 @@ function 5times {
   done
 }
 
+function 10times {
+  for i in {1..10}
+    do $*
+  done
+}
+
 function ss {
   if [ -z "$*" ]
   then
