@@ -182,6 +182,10 @@ function progress {
   git commit -am 'progress'
 }
 
+function zs {
+  zeus start
+}
+
 function zr {
   zeus rspec $*
 }
