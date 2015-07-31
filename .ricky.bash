@@ -19,6 +19,8 @@ git config --global alias.commti commit
 git config --global alias.stuats status
 git config --global alias.stuatt status
 git config --global alias.stauts status
+git config --global alias.checout checkout
+git config --global alias.cehckout checkout
 
 alias gi="git"
 git config --global alias.tstatus status
@@ -29,7 +31,8 @@ git config --global alias.tcommti commit
 git config --global alias.tstuats status
 git config --global alias.tstuatt status
 git config --global alias.tstauts status
-
+git config --global alias.tchecout checkout
+git config --global alias.tcehckout checkout
 
 function rv {
   ruby -v
