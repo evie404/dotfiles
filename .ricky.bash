@@ -12,6 +12,25 @@ export GEM_EDITOR="subl"
 # source /usr/local/share/git-core/git-prompt.sh
 # PS1="[\[\033[32m\]\w]\[\033[0m\]\$(__git_ps1)\n\[\033[1;36m\]\u\[\033[32m\]$ \[\\033[0m\]"
 
+
+git config --global alias.comit commit
+git config --global alias.commmit commit
+git config --global alias.commti commit
+git config --global alias.stuats status
+git config --global alias.stuatt status
+git config --global alias.stauts status
+
+alias gi="git"
+git config --global alias.tstatus status
+git config --global alias.tcommit commit
+git config --global alias.tcomit commit
+git config --global alias.tcommmit commit
+git config --global alias.tcommti commit
+git config --global alias.tstuats status
+git config --global alias.tstuatt status
+git config --global alias.tstauts status
+
+
 function rv {
   ruby -v
 }
