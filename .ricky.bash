@@ -12,13 +12,15 @@ export GEM_EDITOR="subl"
 # source /usr/local/share/git-core/git-prompt.sh
 # PS1="[\[\033[32m\]\w]\[\033[0m\]\$(__git_ps1)\n\[\033[1;36m\]\u\[\033[32m\]$ \[\\033[0m\]"
 
-
+alias it="git"
+alias gir="git"
 git config --global alias.comit commit
 git config --global alias.commmit commit
 git config --global alias.commti commit
 git config --global alias.stuats status
 git config --global alias.stuatt status
 git config --global alias.stauts status
+git config --global alias.statu status
 git config --global alias.checout checkout
 git config --global alias.cehckout checkout
 git config --global alias.chekcout checkout
@@ -33,11 +35,34 @@ git config --global alias.tcommti commit
 git config --global alias.tstuats status
 git config --global alias.tstuatt status
 git config --global alias.tstauts status
+git config --global alias.tstatu status
 git config --global alias.tchecout checkout
 git config --global alias.tcehckout checkout
 git config --global alias.tchekcout checkout
 git config --global alias.tcheckot checkout
 
+alias tiwg="twig"
+
+function twig-fucking-ron {
+  mv .ruby-version .ruby-version.tmp
+  rbenv local 2.1.6
+  twig
+  rm .ruby-version
+  mv .ruby-version.tmp .ruby-version
+}
+
+function edit-subl {
+  subl ~/Library/Application\ Support/Sublime\ Text\ 3
+}
+
+function edit-bash {
+  subl ~/dotfiles/.ricky.bash
+}
+
+function repush {
+  git push origin --delete `git rev-parse --abbrev-ref HEAD`
+  git push
+}
 
 function rv {
   ruby -v
@@ -52,7 +77,11 @@ function lb {
 }
 
 function gm {
-  git checkout master
+  if [ $(basename `pwd`) = "chef" ]; then
+     git checkout production
+  else
+    git checkout master
+  fi
 }
 
 function nb {
@@ -115,6 +144,12 @@ function gf {
 
 function gb {
   git blame $*
+}
+
+function ignore_ruby_version {
+  echo '.ruby-version' >> .gitignore
+  git add .gitignore
+  git commit -m 'git ignore .ruby-version'
 }
 
 function testint {
