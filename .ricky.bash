@@ -8,9 +8,15 @@ fi
 export PS1='\[\033[01;32m\]\u@\h\[\033[01;34m\] \w\[\033[01;33m\]$(__git_ps1)\[\033[01;34m\] \$\[\033[00m\] '
 
 export GEM_EDITOR="subl"
+export BUNDLER_EDITOR="subl"
+export RUBY_CONFIGURE_OPTS="--disable-install-doc --enable-shared"
+eval "$(docker-machine env default)"
 
 # source /usr/local/share/git-core/git-prompt.sh
 # PS1="[\[\033[32m\]\w]\[\033[0m\]\$(__git_ps1)\n\[\033[1;36m\]\u\[\033[32m\]$ \[\\033[0m\]"
+
+alias bundl="bundle"
+alias budnle="bundle"
 
 alias it="git"
 alias gir="git"
@@ -25,6 +31,9 @@ git config --global alias.checout checkout
 git config --global alias.cehckout checkout
 git config --global alias.chekcout checkout
 git config --global alias.checkot checkout
+git config --global alias.checkotu checkout
+git config --global alias.hceckout checkout
+git config --global alias.hcekcout checkout
 
 alias gi="git"
 git config --global alias.tstatus status
@@ -40,6 +49,13 @@ git config --global alias.tchecout checkout
 git config --global alias.tcehckout checkout
 git config --global alias.tchekcout checkout
 git config --global alias.tcheckot checkout
+git config --global alias.tcheckotu checkout
+git config --global alias.thceckout checkout
+git config --global alias.thcekcout checkout
+
+alias gits="git"
+
+git config --global alias.tatus status
 
 alias tiwg="twig"
 
@@ -76,9 +92,17 @@ function lb {
   git checkout -
 }
 
+function ggc {
+  git gc
+  git repack -Ad      # kills in-pack garbage
+  git prune           # kills loose garbage
+}
+
 function gm {
   if [ $(basename `pwd`) = "chef" ]; then
      git checkout production
+  elif [ $(basename `pwd`) = "railslts" ]; then
+     git checkout 3.0.20.11lts.x
   else
     git checkout master
   fi
@@ -244,12 +268,27 @@ function progress {
   git commit -am 'progress'
 }
 
+function curl_time {
+  curl -o /dev/null -s -w %{http_code}:%{time_total}\\n $*
+}
+
 function zs {
-  zeus start
+  if [ -f zeus-test-only.json ]
+  then
+    zeus --config zeus-test-only.json start
+  else
+    zeus start
+  fi
 }
 
 function zr {
   zeus rspec $*
+}
+
+function lol {
+  echo 'lol' >> README.md
+  git commit -am 'lol'
+  git push -f
 }
 
 function up {
