@@ -55,6 +55,10 @@ git config --global alias.thcekcout checkout
 
 alias gits="git"
 
+git config --global alias.psuh push
+git config --global alias.ocmmit commit
+git config --global alias.upsh push
+
 git config --global alias.tatus status
 
 alias tiwg="twig"
