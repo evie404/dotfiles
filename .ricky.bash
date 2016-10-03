@@ -1,7 +1,11 @@
 complete -o default -W "\$(git branch 2>/dev/null | cut -c 3-)" git
 
-if [ -f /usr/local/etc/bash_completion.d/git-prompt.sh ]; then
-  . /usr/local/etc/bash_completion.d/git-prompt.sh
+if [ -f $(brew --prefix)/etc/bash_completion.d/git-prompt.sh ]; then
+  . $(brew --prefix)/etc/bash_completion.d/git-prompt.sh
+fi
+
+if [ -f $(brew --prefix)/etc/bash_completion ]; then
+  . $(brew --prefix)/etc/bash_completion
 fi
 
 # source /usr/local/share/git-core/git-prompt.sh
