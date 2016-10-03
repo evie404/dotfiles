@@ -102,14 +102,18 @@ function ggc {
   git prune           # kills loose garbage
 }
 
-function gm {
+function git_master_branch_name {
   if [ $(basename `pwd`) = "chef" ]; then
-     git checkout production
+     echo "production"
   elif [ $(basename `pwd`) = "railslts" ]; then
-     git checkout 3.0.20.11lts.x
+     echo "3.0.20.11lts.x"
   else
-    git checkout master
+    echo "master"
   fi
+}
+
+function gm {
+  git checkout $(git_master_branch_name)
 }
 
 function nb {
@@ -125,7 +129,7 @@ function difh {
 }
 
 function difm {
-  git diff master | gitx
+  git diff $(git_master_branch_name) | gitx
 }
 
 function greset {
@@ -139,7 +143,7 @@ function gcp {
 function gl {
   if [ -z "$*" ]
   then
-    git log master.. --oneline
+    git log $(git_master_branch_name).. --oneline
   else
     git log $1 --oneline
   fi
