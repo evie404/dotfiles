@@ -41,6 +41,7 @@ git config --global alias.checkot checkout
 git config --global alias.checkotu checkout
 git config --global alias.hceckout checkout
 git config --global alias.hcekcout checkout
+git config --global alias.clena clean
 
 alias gi="git"
 git config --global alias.tstatus status
