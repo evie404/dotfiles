@@ -318,3 +318,11 @@ function up {
   git fetch upstream
   git merge upstream/master
 }
+
+function yaml2json {
+  ruby -ryaml -rjson -e 'puts JSON.pretty_generate(YAML.load(ARGF))' < $1 > $2
+}
+
+function json2yaml {
+  ruby -ryaml -rjson -e 'puts JSON.parse(ARGF.read).to_yaml' < $1 > $2
+}
