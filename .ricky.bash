@@ -306,6 +306,14 @@ function lol {
   git push -f
 }
 
+function nodes {
+  kubectl get nodes --label-columns='kubernetes.io/hostname,chef-role'
+}
+
+function pods {
+  kubectl get pods --all-namespaces -o=wide
+}
+
 function up {
   git fetch upstream
   git merge upstream/master
