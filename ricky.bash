@@ -17,6 +17,7 @@ export GEM_EDITOR="subl"
 export BUNDLER_EDITOR="subl"
 export RUBY_CONFIGURE_OPTS="--disable-install-doc --enable-shared"
 export GOPATH="${HOME}/workspace"
+export MACHINE_DRIVER="virtualbox"
 eval "$(docker-machine env default)"
 
 # source /usr/local/share/git-core/git-prompt.sh
