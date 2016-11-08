@@ -42,7 +42,10 @@ git config --global alias.checkot checkout
 git config --global alias.checkotu checkout
 git config --global alias.hceckout checkout
 git config --global alias.hcekcout checkout
+git config --global alias.chektou checkout
+git config --global alias.chekout checkout
 git config --global alias.clena clean
+git config --global alias.brnahc branch
 
 alias gi="git"
 git config --global alias.tstatus status
@@ -61,6 +64,9 @@ git config --global alias.tcheckot checkout
 git config --global alias.tcheckotu checkout
 git config --global alias.thceckout checkout
 git config --global alias.thcekcout checkout
+git config --global alias.tchektou checkout
+git config --global alias.tchekout checkout
+git config --global alias.tbrnahc branch
 
 alias gits="git"
 
