@@ -307,7 +307,7 @@ function lol {
 }
 
 function nodes {
-  kubectl get nodes --label-columns='kubernetes.io/hostname,chef-role'
+  kubectl get nodes --label-columns='kubernetes.io/hostname,chef-role,failure-domain.beta.kubernetes.io/zone' --sort-by='.metadata.labels.chef-role'
 }
 
 function pods {
