@@ -8,11 +8,13 @@ if [ -f $(brew --prefix)/etc/bash_completion ]; then
   . $(brew --prefix)/etc/bash_completion
 fi
 
+# Kubernetes
 source <(kubectl completion bash)
 
 # source /usr/local/share/git-core/git-prompt.sh
 export PS1='\[\033[01;32m\]\u@\h\[\033[01;34m\] \w\[\033[01;33m\]$(__git_ps1)\[\033[01;34m\] \$\[\033[00m\] '
 
+# Ruby
 export GEM_EDITOR="subl"
 export BUNDLER_EDITOR="subl"
 export RUBY_CONFIGURE_OPTS="--disable-install-doc --enable-shared"
@@ -21,6 +23,7 @@ export RUBY_CONFIGURE_OPTS="--disable-install-doc --enable-shared"
 export GOPATH="${HOME}/workspace"
 export PATH=${GOPATH//://bin:}/bin:$PATH
 
+# Docker
 export MACHINE_DRIVER="virtualbox"
 eval "$(docker-machine env default)"
 
