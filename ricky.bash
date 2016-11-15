@@ -16,7 +16,11 @@ export PS1='\[\033[01;32m\]\u@\h\[\033[01;34m\] \w\[\033[01;33m\]$(__git_ps1)\[\
 export GEM_EDITOR="subl"
 export BUNDLER_EDITOR="subl"
 export RUBY_CONFIGURE_OPTS="--disable-install-doc --enable-shared"
+
+# GO
 export GOPATH="${HOME}/workspace"
+export PATH=${GOPATH//://bin:}/bin:$PATH
+
 export MACHINE_DRIVER="virtualbox"
 eval "$(docker-machine env default)"
 
