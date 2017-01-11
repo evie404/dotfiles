@@ -1,5 +1,7 @@
 complete -o default -W "\$(git branch 2>/dev/null | cut -c 3-)" git
 
+export EDITOR="subl"
+
 if [ -f $(brew --prefix)/etc/bash_completion.d/git-prompt.sh ]; then
   . $(brew --prefix)/etc/bash_completion.d/git-prompt.sh
 fi
