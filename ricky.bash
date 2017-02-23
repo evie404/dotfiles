@@ -1,7 +1,5 @@
 complete -o default -W "\$(git branch 2>/dev/null | cut -c 3-)" git
 
-export EDITOR="subl"
-
 if [ -f $(brew --prefix)/etc/bash_completion.d/git-prompt.sh ]; then
   . $(brew --prefix)/etc/bash_completion.d/git-prompt.sh
 fi
@@ -79,6 +77,7 @@ git config --global alias.thcekcout checkout
 git config --global alias.tchektou checkout
 git config --global alias.tchekout checkout
 git config --global alias.tbrnahc branch
+git config --global alias.tpush push
 
 alias gits="git"
 
