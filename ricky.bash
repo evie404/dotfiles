@@ -318,7 +318,11 @@ function lol {
 }
 
 function nodes {
-  kubectl get nodes --label-columns='kubernetes.io/hostname,chef-role,failure-domain.beta.kubernetes.io/zone' --sort-by='.metadata.labels.chef-role'
+  if [ "$*" = "--watch" ]; then
+    watch -- kubectl get nodes --label-columns='chef-role,failure-domain.beta.kubernetes.io/zone' --sort-by='.metadata.labels.chef-role' -o=wide
+  else
+    kubectl get nodes --label-columns='chef-role,failure-domain.beta.kubernetes.io/zone' --sort-by='.metadata.labels.chef-role' -o=wide
+  fi
 }
 
 function pods {
