@@ -234,7 +234,7 @@ function mm {
 
 function rmas {
   umas
-  git rebase master
+  git rebase $(git_master_branch_name)
 }
 
 function umas {
