@@ -24,8 +24,8 @@ export GOPATH="${HOME}/workspace"
 export PATH=${GOPATH//://bin:}/bin:$PATH
 
 # Docker
-export MACHINE_DRIVER="virtualbox"
-eval "$(docker-machine env default)"
+# export MACHINE_DRIVER="virtualbox"
+# eval "$(docker-machine env default)"
 
 # FUCK JAVASCRIPT
 export PATH=~/node_modules/.bin:$PATH
