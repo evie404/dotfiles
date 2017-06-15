@@ -1,15 +1,21 @@
 complete -o default -W "\$(git branch 2>/dev/null | cut -c 3-)" git
 
-if [ -f $(brew --prefix)/etc/bash_completion.d/git-prompt.sh ]; then
-  . $(brew --prefix)/etc/bash_completion.d/git-prompt.sh
-fi
+if $(which brew >/dev/null); then
+  if [ -f $(brew --prefix)/etc/bash_completion.d/git-prompt.sh ]; then
+    . $(brew --prefix)/etc/bash_completion.d/git-prompt.sh
+  fi
 
-if [ -f $(brew --prefix)/etc/bash_completion ]; then
-  . $(brew --prefix)/etc/bash_completion
+  if [ -f $(brew --prefix)/etc/bash_completion ]; then
+    . $(brew --prefix)/etc/bash_completion
+  fi
+else
+  # no homebrew
 fi
 
 # Kubernetes
-source <(kubectl completion bash)
+if $(which kubectl >/dev/null); then
+  source <(kubectl completion bash)
+fi
 
 # source /usr/local/share/git-core/git-prompt.sh
 export PS1='\[\033[01;32m\]\u@\h\[\033[01;34m\] \w\[\033[01;33m\]$(__git_ps1)\[\033[01;34m\] \$\[\033[00m\] '
