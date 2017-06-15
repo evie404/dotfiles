@@ -89,6 +89,8 @@ git config --global alias.psuh push
 git config --global alias.ocmmit commit
 git config --global alias.upsh push
 
+alias gitp="git"
+git config --global alias.ush push
 
 alias tiwg="twig"
 
