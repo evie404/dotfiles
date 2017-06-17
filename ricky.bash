@@ -15,6 +15,8 @@ if $(which kubectl >/dev/null); then
   source <(kubectl completion bash)
 fi
 
+export PROJECTS_DIR="${HOME}/projects"
+
 # source /usr/local/share/git-core/git-prompt.sh
 export PS1='\[\033[01;32m\]\u@\h\[\033[01;34m\] \w\[\033[01;33m\]$(__git_ps1)\[\033[01;34m\] \$\[\033[00m\] '
 
@@ -24,7 +26,7 @@ export BUNDLER_EDITOR="code"
 export RUBY_CONFIGURE_OPTS="--disable-install-doc --enable-shared"
 
 # GO
-export GOPATH="${HOME}/workspace"
+export GOPATH="${PROJECTS_DIR}"
 export PATH=${GOPATH//://bin:}/bin:$PATH
 
 # Docker
@@ -215,19 +217,19 @@ function testint {
 }
 
 function workspace {
-  cd ~/workspace
+  cd ${PROJECTS_DIR}
 }
 
 function cosite {
-  cd ~/workspace/cosite
+  cd "${PROJECTS_DIR}/cosite"
 }
 
 function tourgen {
-  cd ~/workspace/tourgenerator
+  cd "${PROJECTS_DIR}/tourgenerator"
 }
 
 function dotfiles {
-  cd ~/.dotfiles
+  cd "${PROJECTS_DIR}/dotfiles"
 }
 
 function mm {
