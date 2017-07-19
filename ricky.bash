@@ -41,6 +41,9 @@ export PATH=${GOPATH}/src/k8s.io/kubernetes/_output/bin:$PATH
 # FUCK JAVASCRIPT
 export PATH=~/node_modules/.bin:$PATH
 
+# etcd
+export ETCDCTL_API=3
+
 alias bundl="bundle"
 alias budnle="bundle"
 
