@@ -138,9 +138,10 @@ function ggc {
 }
 
 function git_master_branch_name {
-  if [ $(basename `pwd`) = "chef" ]; then
+  repo_name=$(basename `git rev-parse --show-toplevel`)
+  if [ $repo_name = "chef" ]; then
      echo "production"
-  elif [ $(basename `pwd`) = "railslts" ]; then
+  elif [ $repo_name = "railslts" ]; then
      echo "3.0.20.11lts.x"
   else
     echo "master"
