@@ -143,6 +143,8 @@ function git_master_branch_name {
      echo "production"
   elif [ $repo_name = "railslts" ]; then
      echo "3.0.20.11lts.x"
+  elif [ $repo_name = "chain" ]; then
+     echo "main"
   else
     echo "master"
   fi
