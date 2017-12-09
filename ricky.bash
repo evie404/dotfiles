@@ -45,6 +45,10 @@ export PATH=$CHAIN/bin:$PATH
 # FUCK JAVASCRIPT
 export PATH=~/node_modules/.bin:$PATH
 
+# Java
+export PATH="$HOME/.jenv/bin:$PATH"
+eval "$(jenv init -)"
+
 # etcd
 export ETCDCTL_API=3
 
