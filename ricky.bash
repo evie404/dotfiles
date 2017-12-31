@@ -49,6 +49,9 @@ export PATH=~/node_modules/.bin:$PATH
 export PATH="$HOME/.jenv/bin:$PATH"
 eval "$(jenv init -)"
 
+# Terraform
+alias tf="terraform"
+
 # etcd
 export ETCDCTL_API=3
 
