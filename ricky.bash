@@ -26,6 +26,10 @@ export PS1='\[\033[01;32m\]\u@\h\[\033[01;34m\] \w\[\033[01;33m\]$(__git_ps1)\[\
 export GEM_EDITOR="code"
 export BUNDLER_EDITOR="code"
 export RUBY_CONFIGURE_OPTS="--disable-install-doc --enable-shared"
+export RUBY_GC_HEAP_INIT_SLOTS=600000
+export RUBY_GC_HEAP_FREE_SLOTS=600000
+export RUBY_GC_HEAP_GROWTH_FACTOR=1.25
+export RUBY_GC_HEAP_GROWTH_MAX_SLOTS=300000
 
 # GO
 export GOPATH="${PROJECTS_DIR}"
