@@ -38,10 +38,6 @@ export PATH=${GOPATH//://bin:}/bin:$PATH
 # Use currently compiled version of kubectl
 export PATH=${GOPATH}/src/k8s.io/kubernetes/_output/bin:$PATH
 
-# Chain
-export CHAIN=$(go env GOPATH)/src/chain
-export PATH=$CHAIN/bin:$PATH
-
 # Docker
 # export MACHINE_DRIVER="virtualbox"
 # eval "$(docker-machine env default)"
