@@ -58,6 +58,9 @@ export ETCDCTL_API=3
 alias bundl="bundle"
 alias budnle="bundle"
 
+git config --global user.name "Ricky Pai"
+git config --global user.email "rickyp999+github@gmail.com"
+
 alias it="git"
 alias gir="git"
 git config --global alias.comit commit
