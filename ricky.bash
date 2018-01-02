@@ -46,8 +46,10 @@ export PATH=${GOPATH}/src/k8s.io/kubernetes/_output/bin:$PATH
 export PATH=~/node_modules/.bin:$PATH
 
 # Java
-export PATH="$HOME/.jenv/bin:$PATH"
-eval "$(jenv init -)"
+if $(which jenv >/dev/null); then
+  export PATH="$HOME/.jenv/bin:$PATH"
+  eval "$(jenv init -)"
+fi
 
 # Terraform
 alias tf="terraform"
