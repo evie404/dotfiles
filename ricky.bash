@@ -10,11 +10,6 @@ if $(which brew >/dev/null); then
   fi
 fi
 
-# Kubernetes
-if $(which kubectl >/dev/null); then
-  source <(kubectl completion bash)
-fi
-
 export PROJECTS_DIR="${HOME}/workspace"
 
 export WORKSPACE=$PROJECTS_DIR
@@ -39,12 +34,20 @@ export RUBY_GC_HEAP_FREE_SLOTS=600000
 export RUBY_GC_HEAP_GROWTH_FACTOR=1.25
 export RUBY_GC_HEAP_GROWTH_MAX_SLOTS=300000
 
-# GO
-export GOPATH="${PROJECTS_DIR}"
-export PATH=${GOPATH//://bin:}/bin:$PATH
+alias bundl="bundle"
+alias budnle="bundle"
+
+# Kubernetes
+if $(which kubectl >/dev/null); then
+  source <(kubectl completion bash)
+fi
 
 # Use currently compiled version of kubectl
 export PATH=${GOPATH}/src/k8s.io/kubernetes/_output/bin:$PATH
+
+# GO
+export GOPATH="${PROJECTS_DIR}"
+export PATH=${GOPATH//://bin:}/bin:$PATH
 
 # Docker
 # export MACHINE_DRIVER="virtualbox"
@@ -65,9 +68,7 @@ alias tf="terraform"
 # etcd
 export ETCDCTL_API=3
 
-alias bundl="bundle"
-alias budnle="bundle"
-
+# git
 # git config --global user.name "Ricky Pai"
 # git config --global user.email "rickyp999+github@gmail.com"
 
