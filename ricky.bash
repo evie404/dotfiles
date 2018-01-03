@@ -80,6 +80,8 @@ export ETCDCTL_API=3
 # git config --global user.name "Ricky Pai"
 # git config --global user.email "rickyp999+github@gmail.com"
 
+git config --global core.excludesfile '~/workspace/dotfiles/.gitignore_global'
+
 alias it="git"
 alias gir="git"
 git config --global alias.comit commit
