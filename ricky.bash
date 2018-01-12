@@ -54,6 +54,7 @@ fi
 export PATH=${GOPATH}/src/k8s.io/kubernetes/_output/bin:$PATH
 
 # GO
+export PATH="$HOME/go/bin/:$PATH" # custom installation location
 export GOPATH="${PROJECTS_DIR}"
 export PATH=${GOPATH//://bin:}/bin:$PATH
 
