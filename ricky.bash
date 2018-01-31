@@ -228,7 +228,7 @@ function gl {
 }
 
 function gs {
-  git show $1
+  git status
 }
 
 function grc {
