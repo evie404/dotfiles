@@ -18,6 +18,9 @@ if $(which brew >/dev/null); then
   fi
 fi
 
+eval "$(ssh-agent -s)"
+ssh-add -K ~/.ssh/id_rsa
+
 export PROJECTS_DIR="${HOME}/workspace"
 
 export WORKSPACE=$PROJECTS_DIR
