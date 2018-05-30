@@ -25,6 +25,10 @@ export PROJECTS_DIR="${HOME}/workspace"
 
 export WORKSPACE=$PROJECTS_DIR
 
+if [ -f ${WORKSPACE}/dotfiles-work/work.bash ]; then
+  source "${WORKSPACE}/dotfiles-work/work.bash"
+fi
+
 # source /usr/local/share/git-core/git-prompt.sh
 export PS1='\[\033[01;32m\]\u@\h\[\033[01;34m\] \w\[\033[01;33m\]$(__git_ps1)\[\033[01;34m\] \$\[\033[00m\] '
 
