@@ -194,6 +194,8 @@ function git_master_branch_name {
      echo "dev"
   elif [ $repo_name = "chain" ]; then
      echo "main"
+  elif [ $repo_name = "android" ]; then
+     echo "dev"
   else
     echo "master"
   fi
