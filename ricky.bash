@@ -108,6 +108,7 @@ git config --global alias.stuats status
 git config --global alias.stuatt status
 git config --global alias.stauts status
 git config --global alias.statu status
+git config --global alias.staus status
 git config --global alias.checout checkout
 git config --global alias.cehckout checkout
 git config --global alias.chekcout checkout
@@ -132,6 +133,7 @@ git config --global alias.tstuats status
 git config --global alias.tstuatt status
 git config --global alias.tstauts status
 git config --global alias.tstatu status
+git config --global alias.tstaus status
 git config --global alias.tchecout checkout
 git config --global alias.tcehckout checkout
 git config --global alias.tchekcout checkout
