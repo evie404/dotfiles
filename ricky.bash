@@ -18,6 +18,9 @@ if $(which brew >/dev/null); then
   fi
 fi
 
+# twig
+[[ -s ~/.twig/twig-completion.bash ]] && source ~/.twig/twig-completion.bash
+
 eval "$(ssh-agent -s)"
 ssh-add -K ~/.ssh/id_rsa
 
