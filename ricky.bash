@@ -1,9 +1,9 @@
 complete -o default -W "\$(git branch 2>/dev/null | cut -c 3-)" git
 
 if $(which brew >/dev/null); then
-  if [ -f $(brew --prefix)/etc/bash_completion.d/git-prompt.sh ]; then
-    . $(brew --prefix)/etc/bash_completion.d/git-prompt.sh
-  fi
+  for filename in $(brew --prefix)/etc/bash_completion.d/*; do
+    . ${filename}
+  done
 
   if [ -f $(brew --prefix)/etc/bash_completion ]; then
     . $(brew --prefix)/etc/bash_completion
