@@ -456,3 +456,8 @@ function twig-rebase-stack {
 
   echo "\nDone rebasing branch stack."
 }
+
+function diffb {
+  twig diff-branch $1
+  twig rebase
+}
