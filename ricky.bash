@@ -447,3 +447,12 @@ function yaml2json {
 function json2yaml {
   ruby -ryaml -rjson -e 'puts JSON.parse(ARGF.read).to_yaml' < $1 > $2
 }
+
+function twig-rebase-stack {
+  twig checkout-child 2> /dev/null
+  while [ $? -eq 0 ]; do
+    twig rebase && twig checkout-child 2> /dev/null
+  done
+
+  echo "\nDone rebasing branch stack."
+}
