@@ -449,9 +449,9 @@ function json2yaml {
 }
 
 function twig-rebase-stack {
-  twig checkout-child 2> /dev/null
+  twig checkout-child --all 2> /dev/null
   while [ $? -eq 0 ]; do
-    twig rebase && twig checkout-child 2> /dev/null
+    twig rebase && twig checkout-child --all 2> /dev/null
   done
 
   echo "\nDone rebasing branch stack."
