@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 if $(which git >/dev/null); then
   complete -o default -W "\$(git branch 2>/dev/null | cut -c 3-)" git
 fi
