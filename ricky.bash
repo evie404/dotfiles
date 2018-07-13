@@ -461,3 +461,7 @@ function diffb {
   twig diff-branch $1
   twig rebase
 }
+
+function issue {
+  twig issue $1
+}
