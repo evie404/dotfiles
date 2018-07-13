@@ -36,6 +36,10 @@ if [ -f ${WORKSPACE}/dotfiles-work/work.bash ]; then
   source "${WORKSPACE}/dotfiles-work/work.bash"
 fi
 
+if [ -f ${WORKSPACE}/dotfiles/sekrets.bash ]; then
+  source "${WORKSPACE}/dotfiles/sekrets.bash"
+fi
+
 # source /usr/local/share/git-core/git-prompt.sh
 export PS1='\[\033[01;32m\]\u@\h\[\033[01;34m\] \w\[\033[01;33m\]$(__git_ps1)\[\033[01;34m\] \$\[\033[00m\] '
 
