@@ -466,6 +466,16 @@ function diffb {
   twig rebase
 }
 
+function diffm {
+  if [ -z "$*" ]
+  then
+    twig diff-branch master
+    twig rebase
+  else
+    twig diff-branch master --branch=$1
+  fi
+}
+
 function issue {
   twig issue $1
 }
