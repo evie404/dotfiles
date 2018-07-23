@@ -271,7 +271,7 @@ function gp {
 }
 
 function gpom {
-  git pull origin master
+  git pull origin $(git_master_branch_name)
 }
 
 function gf {
@@ -292,7 +292,7 @@ function testint {
   umas
   git branch -D test_int
   git checkout -b test_int
-  git merge master --no-edit
+  git merge $(git_master_branch_name) --no-edit
   git checkout -
   git branch -D test_int
 }
@@ -315,7 +315,7 @@ function dotfiles {
 
 function mm {
   umas
-  git merge master --no-edit
+  git merge $(git_master_branch_name) --no-edit
 }
 
 function rmas {
@@ -324,7 +324,7 @@ function rmas {
 }
 
 function umas {
-  git checkout master
+  git checkout $(git_master_branch_name)
   gpom
   git checkout -
 }
@@ -471,10 +471,10 @@ function diffb {
 function diffm {
   if [ -z "$*" ]
   then
-    twig diff-branch master
+    twig diff-branch $(git_master_branch_name)
     twig rebase
   else
-    twig diff-branch master --branch=$1
+    twig diff-branch $(git_master_branch_name) --branch=$1
   fi
 }
 
