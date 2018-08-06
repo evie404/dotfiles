@@ -214,12 +214,20 @@ function git_master_branch_name {
   fi
 }
 
+function git_current_branch_name {
+  git rev-parse --abbrev-ref HEAD
+}
+
 function gm {
   git checkout $(git_master_branch_name)
 }
 
 function nb {
+  branch_name=$(git_current_branch_name)
+
   git checkout -b $1
+
+  twig diff-branch ${branch_name}
 }
 
 function dif {
