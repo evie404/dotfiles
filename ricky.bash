@@ -129,6 +129,7 @@ git config --global alias.hceckout checkout
 git config --global alias.hcekcout checkout
 git config --global alias.chektou checkout
 git config --global alias.chekout checkout
+git config --global alias.cehckotu checkout
 git config --global alias.clena clean
 git config --global alias.brnahc branch
 git config --global alias.lgo log
@@ -154,6 +155,7 @@ git config --global alias.thceckout checkout
 git config --global alias.thcekcout checkout
 git config --global alias.tchektou checkout
 git config --global alias.tchekout checkout
+git config --global alias.tcehckotu checkout
 git config --global alias.tbrnahc branch
 git config --global alias.tpush push
 git config --global alias.tlgo log
