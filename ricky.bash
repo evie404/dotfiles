@@ -487,3 +487,7 @@ function diffm {
 function issue {
   twig issue $1
 }
+
+function rickypai {
+  cd $GOPATH/src/github.com/rickypai
+}
