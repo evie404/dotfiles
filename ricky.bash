@@ -64,71 +64,9 @@ alias tf="terraform"
 export ETCDCTL_API=3
 
 # git
-# git config --global user.name "Ricky Pai"
-# git config --global user.email "rickyp999+github@gmail.com"
-
-git config --global core.excludesfile '~/workspace/dotfiles/.gitignore_global'
-
-alias it="git"
-alias gir="git"
-git config --global alias.comit commit
-git config --global alias.commmit commit
-git config --global alias.commti commit
-git config --global alias.comimt commit
-git config --global alias.stuats status
-git config --global alias.stuatt status
-git config --global alias.stauts status
-git config --global alias.statu status
-git config --global alias.staus status
-git config --global alias.checout checkout
-git config --global alias.cehckout checkout
-git config --global alias.chekcout checkout
-git config --global alias.checkot checkout
-git config --global alias.checkotu checkout
-git config --global alias.hceckout checkout
-git config --global alias.hcekcout checkout
-git config --global alias.chektou checkout
-git config --global alias.chekout checkout
-git config --global alias.cehckotu checkout
-git config --global alias.clena clean
-git config --global alias.brnahc branch
-git config --global alias.lgo log
-
-alias gi="git"
-git config --global alias.tstatus status
-git config --global alias.tcommit commit
-git config --global alias.tcomit commit
-git config --global alias.tcommmit commit
-git config --global alias.tcommti commit
-git config --global alias.tcomimt commit
-git config --global alias.tstuats status
-git config --global alias.tstuatt status
-git config --global alias.tstauts status
-git config --global alias.tstatu status
-git config --global alias.tstaus status
-git config --global alias.tchecout checkout
-git config --global alias.tcehckout checkout
-git config --global alias.tchekcout checkout
-git config --global alias.tcheckot checkout
-git config --global alias.tcheckotu checkout
-git config --global alias.thceckout checkout
-git config --global alias.thcekcout checkout
-git config --global alias.tchektou checkout
-git config --global alias.tchekout checkout
-git config --global alias.tcehckotu checkout
-git config --global alias.tbrnahc branch
-git config --global alias.tpush push
-git config --global alias.tlgo log
-
-alias gits="git"
-git config --global alias.tatus status
-
-git config --global alias.psuh push
-git config --global alias.ocmmit commit
-git config --global alias.upsh push
-
-alias gitp="git"
-git config --global alias.ush push
+[[ -s git/config.bash ]] && source git/config.bash
+[[ -s git/aliases.bash ]] && source git/aliases.bash
+[[ -s git/helpers.bash ]] && source git/helpers.bash
 
 alias tiwg="twig"
 
@@ -140,114 +78,12 @@ function edit-bash {
   subl ~/dotfiles/.ricky.bash
 }
 
-function repush {
-  git push origin --delete `git rev-parse --abbrev-ref HEAD`
-  git push
-}
-
 function rv {
   ruby -v
 }
 
 function tw {
   twig
-}
-
-function lb {
-  git checkout -
-}
-
-function ggc {
-  git gc
-  git repack -Ad      # kills in-pack garbage
-  git prune           # kills loose garbage
-}
-
-function git_master_branch_name {
-  repo_name=$(basename `git rev-parse --show-toplevel`)
-  if [ $repo_name = "chef" ]; then
-     echo "dev"
-  elif [ $repo_name = "chain" ]; then
-     echo "main"
-  elif [ $repo_name = "android" ]; then
-     echo "dev"
-  else
-    echo "master"
-  fi
-}
-
-function git_current_branch_name {
-  git rev-parse --abbrev-ref HEAD
-}
-
-function gm {
-  git checkout $(git_master_branch_name)
-}
-
-function nb {
-  branch_name=$(git_current_branch_name)
-
-  git checkout -b $1
-
-  twig diff-branch ${branch_name}
-}
-
-function dif {
-  git diff $1 | gitx
-}
-
-function difh {
-  git diff HEAD^ | gitx
-}
-
-function difm {
-  git diff $(git_master_branch_name) | gitx
-}
-
-function greset {
-  git reset --soft HEAD^
-}
-
-function gcp {
-  git cherry-pick $1
-}
-
-function gl {
-  if [ -z "$*" ]
-  then
-    git log $(git_master_branch_name).. --oneline
-  else
-    git log $1 --oneline
-  fi
-}
-
-function gs {
-  git status
-}
-
-function grc {
-  git add .
-  git rebase --continue
-}
-
-function grbc {
-  grc
-}
-
-function gp {
-  git pull
-}
-
-function gpom {
-  git pull origin $(git_master_branch_name)
-}
-
-function gf {
-  git fetch
-}
-
-function gb {
-  git blame $*
 }
 
 function ignore_ruby_version {
@@ -281,22 +117,6 @@ function dotfiles {
   cd "${PROJECTS_DIR}/dotfiles"
 }
 
-function mm {
-  umas
-  git merge $(git_master_branch_name) --no-edit
-}
-
-function rmas {
-  umas
-  git rebase $(git_master_branch_name)
-}
-
-function umas {
-  git checkout $(git_master_branch_name)
-  gpom
-  git checkout -
-}
-
 function serveshit {
   python -m SimpleHTTPServer
 }
@@ -311,41 +131,6 @@ function 10times {
   for i in {1..10}
     do $*
   done
-}
-
-function ss {
-  if [ -z "$*" ]
-  then
-    git stash show -p stash@{0} | gitx
-  else
-    git stash show -p stash@{$1} | gitx
-  fi
-}
-
-function sd {
-  if [ -z "$*" ]
-  then
-    git stash drop stash@{0}
-  else
-    git stash drop stash@{$1}
-  fi
-}
-
-function sp {
-  if [ -z "$*" ]
-  then
-    git stash pop stash@{0}
-  else
-    git stash pop stash@{$1}
-  fi
-}
-
-function sl {
-  git stash list
-}
-
-function progress {
-  git commit -am 'progress'
 }
 
 function curl_time {
@@ -365,12 +150,6 @@ function zr {
   zeus rspec $*
 }
 
-function lol {
-  echo 'lol' >> README.md
-  git commit -am 'lol'
-  git push -f
-}
-
 function nodes {
   if [ "$*" = "--watch" ]; then
     watch -- kubectl get nodes --label-columns='chef-role,failure-domain.beta.kubernetes.io/zone' --sort-by='.metadata.labels.chef-role' -o=wide
@@ -381,11 +160,6 @@ function nodes {
 
 function pods {
   kubectl get pods --all-namespaces -o=wide
-}
-
-function up {
-  git fetch upstream
-  git merge upstream/master
 }
 
 function pod {
@@ -420,34 +194,6 @@ function yaml2json {
 
 function json2yaml {
   ruby -ryaml -rjson -e 'puts JSON.parse(ARGF.read).to_yaml' < $1 > $2
-}
-
-function twig-rebase-stack {
-  twig checkout-child --all 2> /dev/null
-  while [ $? -eq 0 ]; do
-    twig rebase && twig checkout-child --all 2> /dev/null
-  done
-
-  echo "\nDone rebasing branch stack."
-}
-
-function diffb {
-  twig diff-branch $1
-  twig rebase
-}
-
-function diffm {
-  if [ -z "$*" ]
-  then
-    twig diff-branch $(git_master_branch_name)
-    twig rebase
-  else
-    twig diff-branch $(git_master_branch_name) --branch=$1
-  fi
-}
-
-function issue {
-  twig issue $1
 }
 
 function rickypai {
