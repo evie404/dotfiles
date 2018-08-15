@@ -49,7 +49,6 @@ function nb {
   twig diff-branch ${branch_name}
 }
 
-
 function dif {
   git diff $1 | gitx
 }
@@ -171,7 +170,6 @@ function up {
   git fetch upstream
   git merge upstream/master
 }
-
 
 function twig-rebase-stack {
   twig checkout-child --all 2> /dev/null
