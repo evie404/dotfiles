@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+# Git aliases for people who can't spell like me. Fuzzy matches different permutations (typos) of
+# common git subcommands.
+
 alias it="git"
 alias gir="git"
 git config --global alias.comit commit

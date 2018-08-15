@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+# random functions to help with git operations. requires `twig` for some of them.
+
 function repush {
   git push origin --delete `git rev-parse --abbrev-ref HEAD`
   git push
@@ -9,12 +11,14 @@ function lb {
   git checkout -
 }
 
+# super aggressively performs GC on a repo. only really useful when a large repo becomes slow.
 function ggc {
   git gc
   git repack -Ad      # kills in-pack garbage
   git prune           # kills loose garbage
 }
 
+# master branch names. useful when the master is not named `master`.
 function git_master_branch_name {
   repo_name=$(basename `git rev-parse --show-toplevel`)
   if [ $repo_name = "chef" ]; then
@@ -32,6 +36,7 @@ function git_current_branch_name {
   git rev-parse --abbrev-ref HEAD
 }
 
+# check out master. knows which is the master branch
 function gm {
   git checkout $(git_master_branch_name)
 }
