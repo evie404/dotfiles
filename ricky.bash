@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 
-[[ -s bash-completions.bash ]] && source bash-completions.bash
+CURRENT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null && pwd )"
+
+[[ -s ${CURRENT_DIR}/bash-completions.bash ]] && source ${CURRENT_DIR}/bash-completions.bash
 
 eval "$(ssh-agent -s)"
 ssh-add -K ~/.ssh/id_rsa
@@ -21,7 +23,7 @@ fi
 export PS1='\[\033[01;32m\]\u@\h\[\033[01;34m\] \w\[\033[01;33m\]$(__git_ps1)\[\033[01;34m\] \$\[\033[00m\] '
 
 # Ruby
-[[ -s ruby.bash ]] && source ruby.bash
+[[ -s ${CURRENT_DIR}/ruby.bash ]] && source ${CURRENT_DIR}/ruby.bash
 
 # Kubernetes
 if $(which kubectl >/dev/null); then
@@ -64,9 +66,9 @@ alias tf="terraform"
 export ETCDCTL_API=3
 
 # git
-[[ -s git/config.bash ]] && source git/config.bash
-[[ -s git/aliases.bash ]] && source git/aliases.bash
-[[ -s git/helpers.bash ]] && source git/helpers.bash
+[[ -s ${CURRENT_DIR}/git/config.bash ]] && source ${CURRENT_DIR}/git/config.bash
+[[ -s ${CURRENT_DIR}/git/aliases.bash ]] && source ${CURRENT_DIR}/git/aliases.bash
+[[ -s ${CURRENT_DIR}/git/helpers.bash ]] && source ${CURRENT_DIR}/git/helpers.bash
 
 alias tiwg="twig"
 
