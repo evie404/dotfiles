@@ -44,9 +44,7 @@ function gm {
 function nb {
   branch_name=$(git_current_branch_name)
 
-  git checkout -b $1
-
-  twig diff-branch ${branch_name}
+  git checkout -b $1 && twig diff-branch ${branch_name}
 }
 
 function dif {
