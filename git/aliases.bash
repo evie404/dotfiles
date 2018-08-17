@@ -3,8 +3,10 @@
 # Git aliases for people who can't spell like me. Fuzzy matches different permutations (typos) of
 # common git subcommands.
 
-alias it="git"
 alias gir="git"
+alias gti="git"
+
+alias it="git"
 git config --global alias.comit commit
 git config --global alias.commmit commit
 git config --global alias.commti commit
@@ -24,6 +26,9 @@ git config --global alias.hcekcout checkout
 git config --global alias.chektou checkout
 git config --global alias.chekout checkout
 git config --global alias.cehckotu checkout
+git config --global alias.checouyt checkout
+git config --global alias.cheocut checkout
+git config --global alias.cehcout checkout
 git config --global alias.clena clean
 git config --global alias.brnahc branch
 git config --global alias.lgo log
@@ -50,6 +55,9 @@ git config --global alias.thcekcout checkout
 git config --global alias.tchektou checkout
 git config --global alias.tchekout checkout
 git config --global alias.tcehckotu checkout
+git config --global alias.tchecouyt checkout
+git config --global alias.tcheocut checkout
+git config --global alias.tcehcout checkout
 git config --global alias.tbrnahc branch
 git config --global alias.tpush push
 git config --global alias.tlgo log
