@@ -1,12 +1,12 @@
 #!/usr/bin/env bash
 
+# Use currently compiled version of kubectl
+export PATH=${GOPATH}/src/k8s.io/kubernetes/_output/bin:$PATH
+
 # Kubernetes
 if $(which kubectl >/dev/null); then
   source <(kubectl completion bash)
 fi
-
-# Use currently compiled version of kubectl
-export PATH=${GOPATH}/src/k8s.io/kubernetes/_output/bin:$PATH
 
 function nodes {
   if [ "$*" = "--watch" ]; then
