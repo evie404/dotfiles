@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# random functions to help with git operations. requires `twig` for some of them.
+# random functions to help with git operations. requires `twig` and `gitx` for some of them.
 
 # deletes origin then pushes back again. most useful when testing CI systems that don't support
 # retries on the same branch.
