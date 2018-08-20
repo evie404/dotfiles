@@ -26,7 +26,6 @@ export PS1='\[\033[01;32m\]\u@\h\[\033[01;34m\] \w\[\033[01;33m\]$(__git_ps1)\[\
 # Ruby
 [[ -s ${CURRENT_DIR}/ruby.bash ]] && source ${CURRENT_DIR}/ruby.bash
 
-
 # GO
 export PATH="$HOME/go/bin/:$PATH" # custom installation location
 export GOPATH="${PROJECTS_DIR}"
@@ -70,18 +69,8 @@ function edit-bash {
   code ${CURRENT_DIR}
 }
 
-function rv {
-  ruby -v
-}
-
 function tw {
   twig
-}
-
-function ignore_ruby_version {
-  echo '.ruby-version' >> .gitignore
-  git add .gitignore
-  git commit -m 'git ignore .ruby-version'
 }
 
 function testint {
@@ -127,19 +116,6 @@ function 10times {
 
 function curl_time {
   curl -o /dev/null -s -w %{http_code}:%{time_total}\\n $*
-}
-
-function zs {
-  if [ -f zeus-test-only.json ]
-  then
-    zeus --config zeus-test-only.json start
-  else
-    zeus start
-  fi
-}
-
-function zr {
-  zeus rspec $*
 }
 
 function yaml2json {

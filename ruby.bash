@@ -18,3 +18,26 @@ export RUBY_GC_HEAP_GROWTH_MAX_SLOTS=300000
 
 alias bundl="bundle"
 alias budnle="bundle"
+
+function rv {
+  ruby -v
+}
+
+function ignore_ruby_version {
+  echo '.ruby-version' >> .gitignore
+  git add .gitignore
+  git commit -m 'git ignore .ruby-version'
+}
+
+function zs {
+  if [ -f zeus-test-only.json ]
+  then
+    zeus --config zeus-test-only.json start
+  else
+    zeus start
+  fi
+}
+
+function zr {
+  zeus rspec $*
+}
