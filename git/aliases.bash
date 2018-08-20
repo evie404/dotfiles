@@ -64,6 +64,11 @@ git config --global alias.tlgo log
 
 alias gits="git"
 git config --global alias.tatus status
+git config --global alias.tuats status
+git config --global alias.tuatt status
+git config --global alias.tauts status
+git config --global alias.tatu status
+git config --global alias.taus status
 
 git config --global alias.psuh push
 git config --global alias.ocmmit commit
