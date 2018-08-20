@@ -81,7 +81,7 @@ function gs {
 }
 
 function grc {
-  git add .
+  git add -u
   git rebase --continue
 }
 
