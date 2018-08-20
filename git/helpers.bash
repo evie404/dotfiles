@@ -80,13 +80,9 @@ function gs {
   git status
 }
 
-function grc {
+function grbc {
   git add -u
   git rebase --continue
-}
-
-function grbc {
-  grc
 }
 
 function gp {
