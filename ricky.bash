@@ -16,8 +16,8 @@ if [ -f ${WORKSPACE}/dotfiles-work/work.bash ]; then
   source "${WORKSPACE}/dotfiles-work/work.bash"
 fi
 
-if [ -f ${WORKSPACE}/dotfiles/sekrets.bash ]; then
-  source "${WORKSPACE}/dotfiles/sekrets.bash"
+if [ -f ${CURRENT_DIR}/sekrets.bash ]; then
+  source "${CURRENT_DIR}/sekrets.bash"
 fi
 
 # source /usr/local/share/git-core/git-prompt.sh
