@@ -72,12 +72,8 @@ export ETCDCTL_API=3
 
 alias tiwg="twig"
 
-function edit-subl {
-  subl ~/Library/Application\ Support/Sublime\ Text\ 3
-}
-
 function edit-bash {
-  subl ~/dotfiles/.ricky.bash
+  code ${CURRENT_DIR}
 }
 
 function rv {
@@ -116,7 +112,7 @@ function tourgen {
 }
 
 function dotfiles {
-  cd "${PROJECTS_DIR}/dotfiles"
+  cd ${CURRENT_DIR}
 }
 
 function serveshit {
