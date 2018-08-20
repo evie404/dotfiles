@@ -3,6 +3,7 @@
 CURRENT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null && pwd )"
 
 [[ -s ${CURRENT_DIR}/bash-completions.bash ]] && source ${CURRENT_DIR}/bash-completions.bash
+[[ -s ${CURRENT_DIR}/kubernetes.bash ]] && source ${CURRENT_DIR}/kubernetes.bash
 
 eval "$(ssh-agent -s)"
 ssh-add -K ~/.ssh/id_rsa
@@ -25,13 +26,6 @@ export PS1='\[\033[01;32m\]\u@\h\[\033[01;34m\] \w\[\033[01;33m\]$(__git_ps1)\[\
 # Ruby
 [[ -s ${CURRENT_DIR}/ruby.bash ]] && source ${CURRENT_DIR}/ruby.bash
 
-# Kubernetes
-if $(which kubectl >/dev/null); then
-  source <(kubectl completion bash)
-fi
-
-# Use currently compiled version of kubectl
-export PATH=${GOPATH}/src/k8s.io/kubernetes/_output/bin:$PATH
 
 # GO
 export PATH="$HOME/go/bin/:$PATH" # custom installation location
@@ -146,44 +140,6 @@ function zs {
 
 function zr {
   zeus rspec $*
-}
-
-function nodes {
-  if [ "$*" = "--watch" ]; then
-    watch -- kubectl get nodes --label-columns='chef-role,failure-domain.beta.kubernetes.io/zone' --sort-by='.metadata.labels.chef-role' -o=wide
-  else
-    kubectl get nodes --label-columns='chef-role,failure-domain.beta.kubernetes.io/zone' --sort-by='.metadata.labels.chef-role' -o=wide
-  fi
-}
-
-function pods {
-  kubectl get pods --all-namespaces -o=wide
-}
-
-function pod {
-  pod_name=$1
-}
-
-function kubectl_exec {
-  if [ -z "$pod_name" ]
-  then
-    kubectl exec -it $pod_name -- bash -l
-  else
-    kubectl exec -it $1 -- bash -l
-  fi
-}
-
-function kubectl_describe_pod {
-  if [ -z "$pod_name" ]
-  then
-    kubectl describe pod/$pod_name
-  else
-    kubectl describe pod/$1
-  fi
-}
-
-function kubectl_logs_previous {
-  kubectl logs $pod_name --previous
 }
 
 function yaml2json {
