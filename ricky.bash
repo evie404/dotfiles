@@ -21,8 +21,10 @@ ssh-add -K ~/.ssh/id_rsa
 [[ -s ${MODULES_DIR}/javascript.bash ]] && source ${MODULES_DIR}/javascript.bash
 [[ -s ${MODULES_DIR}/kubernetes.bash ]] && source ${MODULES_DIR}/kubernetes.bash
 [[ -s ${MODULES_DIR}/ruby.bash ]] && source ${MODULES_DIR}/ruby.bash
-[[ -s ${MODULES_DIR}/sekrets.bash ]] && source ${MODULES_DIR}/sekrets.bash
 [[ -s ${MODULES_DIR}/terraform.bash ]] && source ${MODULES_DIR}/terraform.bash
+
+# sekrets are not tracked in git since they are sekrets
+[[ -s ${MODULES_DIR}/sekrets.bash ]] && source ${MODULES_DIR}/sekrets.bash
 
 # git
 [[ -s ${MODULES_DIR}/git/config.bash ]] && source ${MODULES_DIR}/git/config.bash
