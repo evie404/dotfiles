@@ -79,3 +79,11 @@ git config --global alias.ush push
 
 alias giut="git"
 git config --global alias.puh push
+
+# twig aliases
+
+alias tiwg="twig"
+
+function tw {
+  twig
+}

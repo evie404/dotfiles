@@ -25,14 +25,8 @@ ssh-add -K ~/.ssh/id_rsa
 [[ -s ${CURRENT_DIR}/git/aliases.bash ]] && source ${CURRENT_DIR}/git/aliases.bash
 [[ -s ${CURRENT_DIR}/git/helpers.bash ]] && source ${CURRENT_DIR}/git/helpers.bash
 
-alias tiwg="twig"
-
 function edit-bash {
   code ${CURRENT_DIR}
-}
-
-function tw {
-  twig
 }
 
 function serveshit {
