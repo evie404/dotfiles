@@ -14,17 +14,9 @@ ssh-add -K ~/.ssh/id_rsa
 # source /usr/local/share/git-core/git-prompt.sh
 export PS1='\[\033[01;32m\]\u@\h\[\033[01;34m\] \w\[\033[01;33m\]$(__git_ps1)\[\033[01;34m\] \$\[\033[00m\] '
 
-# Ruby
 [[ -s ${CURRENT_DIR}/ruby.bash ]] && source ${CURRENT_DIR}/ruby.bash
+[[ -s ${CURRENT_DIR}/golang.bash ]] && source ${CURRENT_DIR}/golang.bash
 
-# GO
-export PATH="$HOME/go/bin/:$PATH" # custom installation location
-export GOPATH="${PROJECTS_DIR}"
-export PATH=${GOPATH//://bin:}/bin:$PATH
-
-if $(which goenv >/dev/null); then
-  eval "$(goenv init -)"
-fi
 
 # Android
 export ANDROID_NDK_HOME="/usr/local/share/android-ndk" # installed from brew cask
