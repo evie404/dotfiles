@@ -86,14 +86,6 @@ function workspace {
   cd ${PROJECTS_DIR}
 }
 
-function cosite {
-  cd "${PROJECTS_DIR}/cosite"
-}
-
-function tourgen {
-  cd "${PROJECTS_DIR}/tourgenerator"
-}
-
 function dotfiles {
   cd ${CURRENT_DIR}
 }
