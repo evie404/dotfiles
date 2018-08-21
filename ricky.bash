@@ -3,25 +3,26 @@
 CURRENT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null && pwd )"
 MODULES_DIR="${CURRENT_DIR}/modules"
 
+# directory helpers and vars loaded first since other things might depend on it
 [[ -s ${MODULES_DIR}/dirs.bash ]] && source ${MODULES_DIR}/dirs.bash
-
-[[ -s ${MODULES_DIR}/bash-completions.bash ]] && source ${MODULES_DIR}/bash-completions.bash
-[[ -s ${MODULES_DIR}/kubernetes.bash ]] && source ${MODULES_DIR}/kubernetes.bash
 
 eval "$(ssh-agent -s)"
 ssh-add -K ~/.ssh/id_rsa
 
+# work-related stuff lives in a separate private git repo
 [[ -s ${WORKSPACE}/dotfiles-work/work.bash ]] && source ${WORKSPACE}/dotfiles-work/work.bash
-[[ -s ${MODULES_DIR}/sekrets.bash ]] && source ${MODULES_DIR}/sekrets.bash
 
-[[ -s ${MODULES_DIR}/ruby.bash ]] && source ${MODULES_DIR}/ruby.bash
-[[ -s ${MODULES_DIR}/golang.bash ]] && source ${MODULES_DIR}/golang.bash
 [[ -s ${MODULES_DIR}/android.bash ]] && source ${MODULES_DIR}/android.bash
+[[ -s ${MODULES_DIR}/bash-completions.bash ]] && source ${MODULES_DIR}/bash-completions.bash
 [[ -s ${MODULES_DIR}/docker.bash ]] && source ${MODULES_DIR}/docker.bash
-[[ -s ${MODULES_DIR}/javascript.bash ]] && source ${MODULES_DIR}/javascript.bash
-[[ -s ${MODULES_DIR}/java.bash ]] && source ${MODULES_DIR}/java.bash
-[[ -s ${MODULES_DIR}/terraform.bash ]] && source ${MODULES_DIR}/terraform.bash
 [[ -s ${MODULES_DIR}/etcd.bash ]] && source ${MODULES_DIR}/etcd.bash
+[[ -s ${MODULES_DIR}/golang.bash ]] && source ${MODULES_DIR}/golang.bash
+[[ -s ${MODULES_DIR}/java.bash ]] && source ${MODULES_DIR}/java.bash
+[[ -s ${MODULES_DIR}/javascript.bash ]] && source ${MODULES_DIR}/javascript.bash
+[[ -s ${MODULES_DIR}/kubernetes.bash ]] && source ${MODULES_DIR}/kubernetes.bash
+[[ -s ${MODULES_DIR}/ruby.bash ]] && source ${MODULES_DIR}/ruby.bash
+[[ -s ${MODULES_DIR}/sekrets.bash ]] && source ${MODULES_DIR}/sekrets.bash
+[[ -s ${MODULES_DIR}/terraform.bash ]] && source ${MODULES_DIR}/terraform.bash
 
 # git
 [[ -s ${MODULES_DIR}/git/config.bash ]] && source ${MODULES_DIR}/git/config.bash
