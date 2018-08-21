@@ -11,35 +11,14 @@ ssh-add -K ~/.ssh/id_rsa
 [[ -s ${WORKSPACE}/dotfiles-work/work.bash ]] && source ${WORKSPACE}/dotfiles-work/work.bash
 [[ -s ${CURRENT_DIR}/sekrets.bash ]] && source ${CURRENT_DIR}/sekrets.bash
 
-# source /usr/local/share/git-core/git-prompt.sh
-export PS1='\[\033[01;32m\]\u@\h\[\033[01;34m\] \w\[\033[01;33m\]$(__git_ps1)\[\033[01;34m\] \$\[\033[00m\] '
-
 [[ -s ${CURRENT_DIR}/ruby.bash ]] && source ${CURRENT_DIR}/ruby.bash
 [[ -s ${CURRENT_DIR}/golang.bash ]] && source ${CURRENT_DIR}/golang.bash
-
-
-# Android
-export ANDROID_NDK_HOME="/usr/local/share/android-ndk" # installed from brew cask
-export ANDROID_HOME="$HOME/Library/Android/sdk"
-
-# Docker
-# export MACHINE_DRIVER="virtualbox"
-# eval "$(docker-machine env default)"
-
-# FUCK JAVASCRIPT
-export PATH=~/node_modules/.bin:$PATH
-
-# Java
-if $(which jenv >/dev/null); then
-  export PATH="$HOME/.jenv/bin:$PATH"
-  eval "$(jenv init -)"
-fi
-
-# Terraform
-alias tf="terraform"
-
-# etcd
-export ETCDCTL_API=3
+[[ -s ${CURRENT_DIR}/android.bash ]] && source ${CURRENT_DIR}/android.bash
+[[ -s ${CURRENT_DIR}/docker.bash ]] && source ${CURRENT_DIR}/docker.bash
+[[ -s ${CURRENT_DIR}/javascript.bash ]] && source ${CURRENT_DIR}/javascript.bash
+[[ -s ${CURRENT_DIR}/java.bash ]] && source ${CURRENT_DIR}/java.bash
+[[ -s ${CURRENT_DIR}/terraform.bash ]] && source ${CURRENT_DIR}/terraform.bash
+[[ -s ${CURRENT_DIR}/etcd.bash ]] && source ${CURRENT_DIR}/etcd.bash
 
 # git
 [[ -s ${CURRENT_DIR}/git/config.bash ]] && source ${CURRENT_DIR}/git/config.bash
@@ -54,15 +33,6 @@ function edit-bash {
 
 function tw {
   twig
-}
-
-function testint {
-  umas
-  git branch -D test_int
-  git checkout -b test_int
-  git merge $(git_master_branch_name) --no-edit
-  git checkout -
-  git branch -D test_int
 }
 
 function serveshit {

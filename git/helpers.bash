@@ -218,3 +218,13 @@ function diffm {
 function issue {
   twig issue $1
 }
+
+# see if branch is mergable with master
+function testint {
+  umas
+  git branch -D test_int
+  git checkout -b test_int
+  git merge $(git_master_branch_name) --no-edit
+  git checkout -
+  git branch -D test_int
+}
