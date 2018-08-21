@@ -76,3 +76,6 @@ git config --global alias.upsh push
 
 alias gitp="git"
 git config --global alias.ush push
+
+alias giut="git"
+git config --global alias.puh push
