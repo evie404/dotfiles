@@ -8,10 +8,6 @@ CURRENT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null && pwd )"
 eval "$(ssh-agent -s)"
 ssh-add -K ~/.ssh/id_rsa
 
-export PROJECTS_DIR="${HOME}/workspace"
-
-export WORKSPACE=$PROJECTS_DIR
-
 if [ -f ${WORKSPACE}/dotfiles-work/work.bash ]; then
   source "${WORKSPACE}/dotfiles-work/work.bash"
 fi
@@ -82,14 +78,6 @@ function testint {
   git branch -D test_int
 }
 
-function workspace {
-  cd ${PROJECTS_DIR}
-}
-
-function dotfiles {
-  cd ${CURRENT_DIR}
-}
-
 function serveshit {
   python -m SimpleHTTPServer
 }
@@ -116,8 +104,4 @@ function yaml2json {
 
 function json2yaml {
   ruby -ryaml -rjson -e 'puts JSON.parse(ARGF.read).to_yaml' < $1 > $2
-}
-
-function rickypai {
-  cd $GOPATH/src/github.com/rickypai
 }
