@@ -1,31 +1,32 @@
 #!/usr/bin/env bash
 
 CURRENT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null && pwd )"
+MODULES_DIR="${CURRENT_DIR}/modules"
 
-[[ -s ${CURRENT_DIR}/dirs.bash ]] && source ${CURRENT_DIR}/dirs.bash
+[[ -s ${MODULES_DIR}/dirs.bash ]] && source ${MODULES_DIR}/dirs.bash
 
-[[ -s ${CURRENT_DIR}/bash-completions.bash ]] && source ${CURRENT_DIR}/bash-completions.bash
-[[ -s ${CURRENT_DIR}/kubernetes.bash ]] && source ${CURRENT_DIR}/kubernetes.bash
+[[ -s ${MODULES_DIR}/bash-completions.bash ]] && source ${MODULES_DIR}/bash-completions.bash
+[[ -s ${MODULES_DIR}/kubernetes.bash ]] && source ${MODULES_DIR}/kubernetes.bash
 
 eval "$(ssh-agent -s)"
 ssh-add -K ~/.ssh/id_rsa
 
 [[ -s ${WORKSPACE}/dotfiles-work/work.bash ]] && source ${WORKSPACE}/dotfiles-work/work.bash
-[[ -s ${CURRENT_DIR}/sekrets.bash ]] && source ${CURRENT_DIR}/sekrets.bash
+[[ -s ${MODULES_DIR}/sekrets.bash ]] && source ${MODULES_DIR}/sekrets.bash
 
-[[ -s ${CURRENT_DIR}/ruby.bash ]] && source ${CURRENT_DIR}/ruby.bash
-[[ -s ${CURRENT_DIR}/golang.bash ]] && source ${CURRENT_DIR}/golang.bash
-[[ -s ${CURRENT_DIR}/android.bash ]] && source ${CURRENT_DIR}/android.bash
-[[ -s ${CURRENT_DIR}/docker.bash ]] && source ${CURRENT_DIR}/docker.bash
-[[ -s ${CURRENT_DIR}/javascript.bash ]] && source ${CURRENT_DIR}/javascript.bash
-[[ -s ${CURRENT_DIR}/java.bash ]] && source ${CURRENT_DIR}/java.bash
-[[ -s ${CURRENT_DIR}/terraform.bash ]] && source ${CURRENT_DIR}/terraform.bash
-[[ -s ${CURRENT_DIR}/etcd.bash ]] && source ${CURRENT_DIR}/etcd.bash
+[[ -s ${MODULES_DIR}/ruby.bash ]] && source ${MODULES_DIR}/ruby.bash
+[[ -s ${MODULES_DIR}/golang.bash ]] && source ${MODULES_DIR}/golang.bash
+[[ -s ${MODULES_DIR}/android.bash ]] && source ${MODULES_DIR}/android.bash
+[[ -s ${MODULES_DIR}/docker.bash ]] && source ${MODULES_DIR}/docker.bash
+[[ -s ${MODULES_DIR}/javascript.bash ]] && source ${MODULES_DIR}/javascript.bash
+[[ -s ${MODULES_DIR}/java.bash ]] && source ${MODULES_DIR}/java.bash
+[[ -s ${MODULES_DIR}/terraform.bash ]] && source ${MODULES_DIR}/terraform.bash
+[[ -s ${MODULES_DIR}/etcd.bash ]] && source ${MODULES_DIR}/etcd.bash
 
 # git
-[[ -s ${CURRENT_DIR}/git/config.bash ]] && source ${CURRENT_DIR}/git/config.bash
-[[ -s ${CURRENT_DIR}/git/aliases.bash ]] && source ${CURRENT_DIR}/git/aliases.bash
-[[ -s ${CURRENT_DIR}/git/helpers.bash ]] && source ${CURRENT_DIR}/git/helpers.bash
+[[ -s ${MODULES_DIR}/git/config.bash ]] && source ${MODULES_DIR}/git/config.bash
+[[ -s ${MODULES_DIR}/git/aliases.bash ]] && source ${MODULES_DIR}/git/aliases.bash
+[[ -s ${MODULES_DIR}/git/helpers.bash ]] && source ${MODULES_DIR}/git/helpers.bash
 
 # edit the content in this directory
 function edit-bash {
