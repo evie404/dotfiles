@@ -8,13 +8,8 @@ CURRENT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null && pwd )"
 eval "$(ssh-agent -s)"
 ssh-add -K ~/.ssh/id_rsa
 
-if [ -f ${WORKSPACE}/dotfiles-work/work.bash ]; then
-  source "${WORKSPACE}/dotfiles-work/work.bash"
-fi
-
-if [ -f ${CURRENT_DIR}/sekrets.bash ]; then
-  source "${CURRENT_DIR}/sekrets.bash"
-fi
+[[ -s ${WORKSPACE}/dotfiles-work/work.bash ]] && source ${WORKSPACE}/dotfiles-work/work.bash
+[[ -s ${CURRENT_DIR}/sekrets.bash ]] && source ${CURRENT_DIR}/sekrets.bash
 
 # source /usr/local/share/git-core/git-prompt.sh
 export PS1='\[\033[01;32m\]\u@\h\[\033[01;34m\] \w\[\033[01;33m\]$(__git_ps1)\[\033[01;34m\] \$\[\033[00m\] '
