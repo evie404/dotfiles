@@ -24,11 +24,7 @@ function ggc {
 # master branch names. useful when the master is not named `master`.
 function git_master_branch_name {
   repo_name=$(basename `git rev-parse --show-toplevel`)
-  if [ $repo_name = "chef" ]; then
-     echo "dev"
-  elif [ $repo_name = "chain" ]; then
-     echo "main"
-  elif [ $repo_name = "android" ]; then
+  if [ $repo_name = "android" ]; then
      echo "dev"
   else
     echo "master"
