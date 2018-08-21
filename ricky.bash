@@ -2,6 +2,8 @@
 
 CURRENT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null && pwd )"
 
+[[ -s ${CURRENT_DIR}/dirs.bash ]] && source ${CURRENT_DIR}/dirs.bash
+
 [[ -s ${CURRENT_DIR}/bash-completions.bash ]] && source ${CURRENT_DIR}/bash-completions.bash
 [[ -s ${CURRENT_DIR}/kubernetes.bash ]] && source ${CURRENT_DIR}/kubernetes.bash
 
