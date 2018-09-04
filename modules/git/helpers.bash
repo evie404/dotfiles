@@ -210,6 +210,14 @@ function diffm {
   fi
 }
 
+function jira {
+  if [ ! -z "$1" ]
+  then
+    twig jira "$1"
+    git commit --allow-empty -m "$1"
+  fi
+}
+
 # sets twig issue for branch. eg: `twig issue 1234`.
 function issue {
   twig issue $1
