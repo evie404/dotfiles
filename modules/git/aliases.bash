@@ -32,6 +32,7 @@ git config --global alias.cehcout checkout
 git config --global alias.clena clean
 git config --global alias.brnahc branch
 git config --global alias.lgo log
+git config --global alias.rebaes rebase
 
 alias gi="git"
 git config --global alias.tstatus status
@@ -61,6 +62,7 @@ git config --global alias.tcehcout checkout
 git config --global alias.tbrnahc branch
 git config --global alias.tpush push
 git config --global alias.tlgo log
+git config --global alias.trebaes rebase
 
 alias gits="git"
 git config --global alias.tatus status
