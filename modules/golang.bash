@@ -7,3 +7,7 @@ export PATH=${GOPATH//://bin:}/bin:$PATH
 if $(which goenv >/dev/null); then
   eval "$(goenv init -)"
 fi
+
+function qq {
+  LOCAL=1 script/gazelle fix $* && bazel test //$*...
+}
