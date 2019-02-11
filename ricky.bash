@@ -14,6 +14,7 @@ ssh-add -K ~/.ssh/id_rsa
 
 [[ -s ${MODULES_DIR}/android.bash ]] && source ${MODULES_DIR}/android.bash
 [[ -s ${MODULES_DIR}/bash-completions.bash ]] && source ${MODULES_DIR}/bash-completions.bash
+[[ -s ${MODULES_DIR}/bazel.bash ]] && source ${MODULES_DIR}/bazel.bash
 [[ -s ${MODULES_DIR}/docker.bash ]] && source ${MODULES_DIR}/docker.bash
 [[ -s ${MODULES_DIR}/etcd.bash ]] && source ${MODULES_DIR}/etcd.bash
 [[ -s ${MODULES_DIR}/golang.bash ]] && source ${MODULES_DIR}/golang.bash
