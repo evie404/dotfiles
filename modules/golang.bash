@@ -13,3 +13,7 @@ fi
 function qq {
   LOCAL=1 script/gazelle fix $* && bazel test //$*...
 }
+
+function qqq {
+  LOCAL=1 script/gazelle fix $* && bazel build //$*...
+}
