@@ -33,6 +33,8 @@ ssh-add -K ~/.ssh/id_rsa
 [[ -s ${MODULES_DIR}/git/aliases.bash ]] && source ${MODULES_DIR}/git/aliases.bash
 [[ -s ${MODULES_DIR}/git/helpers.bash ]] && source ${MODULES_DIR}/git/helpers.bash
 
+[[ -s ${MODULES_DIR}/title.bash ]] && source ${MODULES_DIR}/title.bash
+
 # edit the content in this directory
 function edit-bash {
   code ${CURRENT_DIR}
