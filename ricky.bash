@@ -34,6 +34,7 @@ ssh-add -K ~/.ssh/id_rsa
 [[ -s ${MODULES_DIR}/git/helpers.bash ]] && source ${MODULES_DIR}/git/helpers.bash
 
 [[ -s ${MODULES_DIR}/title.bash ]] && source ${MODULES_DIR}/title.bash
+[[ -s ${MODULES_DIR}/completions/bazel.bash ]] && source ${MODULES_DIR}/completions/bazel.bash
 
 # edit the content in this directory
 function edit-bash {
