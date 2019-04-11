@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+export PATH="$HOME/bin:$PATH"
+
 CURRENT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null && pwd )"
 MODULES_DIR="${CURRENT_DIR}/modules"
 
@@ -17,6 +19,7 @@ ssh-add -K ~/.ssh/id_rsa
 [[ -s ${MODULES_DIR}/bazel.bash ]] && source ${MODULES_DIR}/bazel.bash
 [[ -s ${MODULES_DIR}/docker.bash ]] && source ${MODULES_DIR}/docker.bash
 [[ -s ${MODULES_DIR}/etcd.bash ]] && source ${MODULES_DIR}/etcd.bash
+[[ -s ${MODULES_DIR}/graphviz.bash ]] && source ${MODULES_DIR}/graphviz.bash
 [[ -s ${MODULES_DIR}/golang.bash ]] && source ${MODULES_DIR}/golang.bash
 [[ -s ${MODULES_DIR}/java.bash ]] && source ${MODULES_DIR}/java.bash
 [[ -s ${MODULES_DIR}/javascript.bash ]] && source ${MODULES_DIR}/javascript.bash
