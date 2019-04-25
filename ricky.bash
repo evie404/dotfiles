@@ -11,9 +11,6 @@ MODULES_DIR="${CURRENT_DIR}/modules"
 eval "$(ssh-agent -s)"
 ssh-add -K ~/.ssh/id_rsa
 
-# work-related stuff lives in a separate private git repo
-[[ -s ${WORKSPACE}/dotfiles-work/work.bash ]] && source ${WORKSPACE}/dotfiles-work/work.bash
-
 [[ -s ${MODULES_DIR}/android.bash ]] && source ${MODULES_DIR}/android.bash
 [[ -s ${MODULES_DIR}/bash-completions.bash ]] && source ${MODULES_DIR}/bash-completions.bash
 [[ -s ${MODULES_DIR}/bazel.bash ]] && source ${MODULES_DIR}/bazel.bash
@@ -37,6 +34,9 @@ ssh-add -K ~/.ssh/id_rsa
 [[ -s ${MODULES_DIR}/git/helpers.bash ]] && source ${MODULES_DIR}/git/helpers.bash
 
 [[ -s ${MODULES_DIR}/completions/bazel.bash ]] && source ${MODULES_DIR}/completions/bazel.bash
+
+# work-related stuff lives in a separate private git repo
+[[ -s ${WORKSPACE}/dotfiles-work/work.bash ]] && source ${WORKSPACE}/dotfiles-work/work.bash
 
 # edit the content in this directory
 function edit-bash {
