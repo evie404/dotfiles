@@ -1,5 +1,9 @@
 #!/usr/bin/env bash
 
+function reload {
+  ${BASH_SOURCE[0]}
+}
+
 export PATH="$HOME/bin:$PATH"
 
 CURRENT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null && pwd )"
