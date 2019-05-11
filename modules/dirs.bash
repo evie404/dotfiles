@@ -9,7 +9,7 @@ function workspace {
 }
 
 function dotfiles {
-  cd ${CURRENT_DIR}
+  cd ${CURRENT_DIR}/..
 }
 
 function rickypai {
