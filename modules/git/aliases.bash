@@ -3,6 +3,8 @@
 # Git aliases for people who can't spell like me. Fuzzy matches different permutations (typos) of
 # common git subcommands.
 
+alias qgit="git"
+alias qgi="git"
 alias gir="git"
 alias gti="git"
 
