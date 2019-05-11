@@ -1,9 +1,10 @@
 # dotfiles
 
+idk... collection of bash aliases mostly to make sure typos don't get into the way of productivity™.
+
 ## Installation
 
 I typically store projects under `~/workspace`, but feel free to put this wherever you want.
-
 
 ### 1. Git clone to your workspace
 
