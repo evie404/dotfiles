@@ -4,9 +4,25 @@
 alias bazel="bazelisk"
 
 function qq {
-  bazel run //:gazelle $* && bazel test //$*...
+  # directory
+  dir=$1
+
+  # assume rest of the arguments are flags for bazel
+  if [ ${#} -gt 1 ]; then
+    shift
+  fi
+
+  bazel run //:gazelle $dir && bazel test //$dir... ${@}
 }
 
 function qqq {
-  bazel run //:gazelle $* && bazel build //$*...
+  # directory
+  dir=$1
+
+  # assume rest of the arguments are flags for bazel
+  if [ ${#} -gt 1 ]; then
+    shift
+  fi
+
+  bazel run //:gazelle $dir && bazel build //$dir... ${@}
 }
