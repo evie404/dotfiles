@@ -20,28 +20,28 @@ function pods {
   kubectl get pods --all-namespaces -o=wide
 }
 
-function pod {
-  pod_name=$1
-}
+# function pod {
+#   pod_name=$1
+# }
 
-function kubectl_exec {
-  if [ -z "$pod_name" ]
-  then
-    kubectl exec -it $pod_name -- bash -l
-  else
-    kubectl exec -it $1 -- bash -l
-  fi
-}
+# function kubectl_exec {
+#   if [ -z "$pod_name" ]
+#   then
+#     kubectl exec -it $pod_name -- bash -l
+#   else
+#     kubectl exec -it $1 -- bash -l
+#   fi
+# }
 
-function kubectl_describe_pod {
-  if [ -z "$pod_name" ]
-  then
-    kubectl describe pod/$pod_name
-  else
-    kubectl describe pod/$1
-  fi
-}
+# function kubectl_describe_pod {
+#   if [ -z "$pod_name" ]
+#   then
+#     kubectl describe pod/$pod_name
+#   else
+#     kubectl describe pod/$1
+#   fi
+# }
 
-function kubectl_logs_previous {
-  kubectl logs $pod_name --previous
-}
+# function kubectl_logs_previous {
+#   kubectl logs $pod_name --previous
+# }
