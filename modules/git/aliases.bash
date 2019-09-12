@@ -7,6 +7,7 @@ alias qgit="git"
 alias qgi="git"
 alias gir="git"
 alias gti="git"
+alias giot="git"
 
 alias it="git"
 git config --global alias.comit commit
@@ -31,10 +32,13 @@ git config --global alias.cehckotu checkout
 git config --global alias.checouyt checkout
 git config --global alias.cheocut checkout
 git config --global alias.cehcout checkout
+git config --global alias.chekotu checkout
+git config --global alias.checklout checkout
 git config --global alias.clena clean
 git config --global alias.brnahc branch
 git config --global alias.lgo log
 git config --global alias.rebaes rebase
+git config --global alias.statsh stash
 
 alias gi="git"
 git config --global alias.tstatus status
@@ -61,10 +65,13 @@ git config --global alias.tcehckotu checkout
 git config --global alias.tchecouyt checkout
 git config --global alias.tcheocut checkout
 git config --global alias.tcehcout checkout
+git config --global alias.tchekotu checkout
+git config --global alias.tchecklout checkout
 git config --global alias.tbrnahc branch
 git config --global alias.tpush push
 git config --global alias.tlgo log
 git config --global alias.trebaes rebase
+git config --global alias.tstatsh stash
 
 alias gits="git"
 git config --global alias.tatus status
