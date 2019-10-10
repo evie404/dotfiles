@@ -3,6 +3,10 @@
 # Use currently compiled version of kubectl
 export PATH=${GOPATH}/src/k8s.io/kubernetes/_output/bin:$PATH
 
+alias kubect="kubectl"
+alias ubectl="kubectl"
+alias ubect="kubectl"
+
 # Kubernetes
 if $(which kubectl >/dev/null); then
   source <(kubectl completion bash)
