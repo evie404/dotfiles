@@ -19,6 +19,7 @@ git config --global alias.stuatt status
 git config --global alias.stauts status
 git config --global alias.statu status
 git config --global alias.staus status
+git config --global alias.stuat status
 git config --global alias.checout checkout
 git config --global alias.cehckout checkout
 git config --global alias.chekcout checkout
@@ -37,8 +38,10 @@ git config --global alias.checklout checkout
 git config --global alias.checkouty checkout
 git config --global alias.clena clean
 git config --global alias.brnahc branch
+git config --global alias.puh push
 git config --global alias.lgo log
 git config --global alias.rebaes rebase
+git config --global alias.revase rebase
 git config --global alias.statsh stash
 
 alias gi="git"
@@ -53,6 +56,7 @@ git config --global alias.tstuatt status
 git config --global alias.tstauts status
 git config --global alias.tstatu status
 git config --global alias.tstaus status
+git config --global alias.tstuat status
 git config --global alias.tchecout checkout
 git config --global alias.tcehckout checkout
 git config --global alias.tchekcout checkout
@@ -71,8 +75,10 @@ git config --global alias.tchecklout checkout
 git config --global alias.tcheckouty checkout
 git config --global alias.tbrnahc branch
 git config --global alias.tpush push
+git config --global alias.tpuh push
 git config --global alias.tlgo log
 git config --global alias.trebaes rebase
+git config --global alias.trevase rebase
 git config --global alias.tstatsh stash
 
 alias gits="git"
