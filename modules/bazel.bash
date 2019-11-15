@@ -8,11 +8,10 @@ function qq {
   dir=$1
 
   # assume rest of the arguments are flags for bazel
-  if [ ${#} -gt 1 ]; then
-    shift
-  fi
+  shift
 
-  bazel run //:gazelle $dir && bazel test //$dir... ${@}
+  bazel run //:gazelle -- $dir
+  bazel test //$dir... ${@}
 }
 
 function qqq {
@@ -20,9 +19,8 @@ function qqq {
   dir=$1
 
   # assume rest of the arguments are flags for bazel
-  if [ ${#} -gt 1 ]; then
-    shift
-  fi
+  shift
 
-  bazel run //:gazelle $dir && bazel build //$dir... ${@}
+  bazel run //:gazelle -- $dir
+  bazel build //$dir... ${@}
 }
