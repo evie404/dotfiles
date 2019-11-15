@@ -43,6 +43,7 @@ git config --global alias.lgo log
 git config --global alias.rebaes rebase
 git config --global alias.revase rebase
 git config --global alias.statsh stash
+git config --global alias.stahs stash
 
 alias gi="git"
 git config --global alias.tstatus status
@@ -80,6 +81,7 @@ git config --global alias.tlgo log
 git config --global alias.trebaes rebase
 git config --global alias.trevase rebase
 git config --global alias.tstatsh stash
+git config --global alias.tstahs stash
 
 alias gits="git"
 git config --global alias.tatus status
