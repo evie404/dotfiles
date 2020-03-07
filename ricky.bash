@@ -25,6 +25,7 @@ ssh-add
 [[ -s ${MODULES_DIR}/java.bash ]] && source ${MODULES_DIR}/java.bash
 [[ -s ${MODULES_DIR}/javascript.bash ]] && source ${MODULES_DIR}/javascript.bash
 [[ -s ${MODULES_DIR}/kubernetes.bash ]] && source ${MODULES_DIR}/kubernetes.bash
+[[ -s ${MODULES_DIR}/python.bash ]] && source ${MODULES_DIR}/python.bash
 [[ -s ${MODULES_DIR}/ruby.bash ]] && source ${MODULES_DIR}/ruby.bash
 [[ -s ${MODULES_DIR}/rust.bash ]] && source ${MODULES_DIR}/rust.bash
 [[ -s ${MODULES_DIR}/terraform.bash ]] && source ${MODULES_DIR}/terraform.bash
