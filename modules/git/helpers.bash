@@ -26,6 +26,8 @@ function git_main_branch_name {
   repo_name=$(basename `git rev-parse --show-toplevel`)
   if [ $repo_name = "android" ]; then
      echo "dev"
+  elif [ $repo_name = "dashboards" ]; then
+    echo "main"
   else
     echo "master"
   fi
