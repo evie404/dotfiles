@@ -21,8 +21,8 @@ function ggc {
   git prune           # kills loose garbage
 }
 
-# master branch names. useful when the master is not named `master`.
-function git_master_branch_name {
+# main branch names. useful when the main is not named `master`.
+function git_main_branch_name {
   repo_name=$(basename `git rev-parse --show-toplevel`)
   if [ $repo_name = "android" ]; then
      echo "dev"
@@ -38,7 +38,7 @@ function git_current_branch_name {
 
 # check out master. knows which is the master branch
 function gm {
-  git checkout $(git_master_branch_name)
+  git checkout $(git_main_branch_name)
 }
 
 # create a new branch based on the current branch. uses twig to set diff branch name.
@@ -60,7 +60,7 @@ function difh {
 
 # diff against master with gitx.
 function difm {
-  git diff $(git_master_branch_name) | gitx
+  git diff $(git_main_branch_name) | gitx
 }
 
 # undo last commit but keep the changes. useful when you want to keep the changes but not the commit.
@@ -77,7 +77,7 @@ function gcp {
 function gl {
   if [ -z "$*" ]
   then
-    git log $(git_master_branch_name).. --oneline
+    git log $(git_main_branch_name).. --oneline
   else
     git log $1 --oneline
   fi
@@ -99,7 +99,7 @@ function gp {
 
 # git pull origin master but knows what master bracnch name is
 function gpom {
-  git pull origin $(git_master_branch_name)
+  git pull origin $(git_main_branch_name)
 }
 
 function gf {
@@ -113,18 +113,18 @@ function gb {
 # merges master
 function mm {
   umas
-  git merge $(git_master_branch_name) --no-edit
+  git merge $(git_main_branch_name) --no-edit
 }
 
 # rebase master
 function rmas {
   umas
-  git rebase $(git_master_branch_name)
+  git rebase $(git_main_branch_name)
 }
 
 # updates master to origin
 function umas {
-  git checkout $(git_master_branch_name)
+  git checkout $(git_main_branch_name)
   gpom
   git checkout -
 }
@@ -203,10 +203,10 @@ function diffb {
 function diffm {
   if [ -z "$*" ]
   then
-    twig diff-branch $(git_master_branch_name)
+    twig diff-branch $(git_main_branch_name)
     twig rebase
   else
-    twig diff-branch $(git_master_branch_name) --branch=$1
+    twig diff-branch $(git_main_branch_name) --branch=$1
   fi
 }
 
@@ -228,7 +228,7 @@ function testint {
   umas
   git branch -D test_int
   git checkout -b test_int
-  git merge $(git_master_branch_name) --no-edit
+  git merge $(git_main_branch_name) --no-edit
   git checkout -
   git branch -D test_int
 }
