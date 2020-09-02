@@ -28,6 +28,8 @@ function git_main_branch_name {
      echo "dev"
   elif [ $repo_name = "dashboards" ]; then
     echo "main"
+  elif [ $repo_name = $MAIN_REPO ]; then
+    echo "main"
   else
     echo "master"
   fi
