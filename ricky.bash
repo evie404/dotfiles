@@ -5,6 +5,7 @@ function reload {
 }
 
 export PATH="$HOME/bin:$PATH"
+export EDITOR="vi"
 
 CURRENT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null && pwd )"
 MODULES_DIR="${CURRENT_DIR}/modules"
