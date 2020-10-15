@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+export PATH="$HOME/.rbenv/bin:$PATH"
+
 if [ ! -f ~/.gemrc ]; then
   echo 'gem: --no-document' > ~/.gemrc
 fi
