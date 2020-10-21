@@ -24,14 +24,10 @@ function ggc {
 # main branch names. useful when the main is not named `master`.
 function git_main_branch_name {
   repo_name=$(basename `git rev-parse --show-toplevel`)
-  if [ $repo_name = "android" ]; then
-     echo "dev"
-  elif [ $repo_name = "dashboards" ]; then
-    echo "main"
-  elif [ $repo_name = $MAIN_REPO ]; then
+  if [ $repo_name = $MAIN_REPO ]; then
     echo "main"
   else
-    echo "master"
+    echo "main"
   fi
 }
 
