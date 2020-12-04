@@ -39,6 +39,8 @@ git config --global alias.checklout checkout
 git config --global alias.checkouty checkout
 git config --global alias.hckecout checkout
 git config --global alias.ehckout checkout
+git config --global alias.chckout checkout
+git config --global alias.checkout checkout
 git config --global alias.clena clean
 git config --global alias.brnahc branch
 git config --global alias.puh push
@@ -80,6 +82,8 @@ git config --global alias.tchecklout checkout
 git config --global alias.tcheckouty checkout
 git config --global alias.thckecout checkout
 git config --global alias.tehckout checkout
+git config --global alias.tchckout checkout
+git config --global alias.tcheckout checkout
 git config --global alias.tbrnahc branch
 git config --global alias.tpush push
 git config --global alias.tpuh push
