@@ -4,7 +4,7 @@ function reload {
   ${BASH_SOURCE[0]}
 }
 
-export PATH="$HOME/bin:$PATH"
+export PATH="$HOME/bin:$HOME/.local/bin:$PATH"
 export EDITOR="vi"
 
 CURRENT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null && pwd )"
