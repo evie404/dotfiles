@@ -30,6 +30,7 @@ ssh-add
 [[ -s ${MODULES_DIR}/ruby.bash ]] && source ${MODULES_DIR}/ruby.bash
 [[ -s ${MODULES_DIR}/rust.bash ]] && source ${MODULES_DIR}/rust.bash
 [[ -s ${MODULES_DIR}/terraform.bash ]] && source ${MODULES_DIR}/terraform.bash
+[[ -s ${MODULES_DIR}/wsl.bash ]] && source ${MODULES_DIR}/wsl.bash
 
 # sekrets are not tracked in git since they are sekrets
 [[ -s ${MODULES_DIR}/sekrets.bash ]] && source ${MODULES_DIR}/sekrets.bash
