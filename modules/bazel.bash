@@ -3,6 +3,8 @@
 # export USE_BAZEL_VERSION="0.18.1"
 alias bazel="bazelisk"
 
+export PATH="$HOME/workspace/bazel-watcher/bazel-bin/ibazel/linux_amd64_pure_stripped/:$PATH"
+
 function qq {
   # directory
   dir=$1
