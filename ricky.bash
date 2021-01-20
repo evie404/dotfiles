@@ -6,6 +6,7 @@ function reload {
 
 export PATH="$HOME/bin:$HOME/.local/bin:$PATH"
 export EDITOR="vi"
+export GPG_TTY=$(tty)
 
 CURRENT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null && pwd )"
 MODULES_DIR="${CURRENT_DIR}/modules"
