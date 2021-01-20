@@ -12,6 +12,10 @@ if $(which kubectl >/dev/null); then
   source <(kubectl completion bash)
 fi
 
+if $(which helm >/dev/null); then
+  source <(helm completion bash)
+fi
+
 function nodes {
   if [ "$*" = "--watch" ]; then
     watch -- kubectl get nodes --label-columns='failure-domain.beta.kubernetes.io/zone' -o=wide
