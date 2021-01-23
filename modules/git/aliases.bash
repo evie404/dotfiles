@@ -123,6 +123,6 @@ git config --global alias.puh push
 
 alias tiwg="twig"
 
-function tw {
+function tw() {
   twig
 }

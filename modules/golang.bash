@@ -10,6 +10,6 @@ if $(which goenv >/dev/null); then
   eval "$(goenv init -)"
 fi
 
-function ricky-cli {
+function ricky-cli() {
   (cd ~/workspace/src/github.com/rickypai/ricky-cli && go run main.go)
 }

@@ -16,7 +16,7 @@ if $(which helm >/dev/null); then
   source <(helm completion bash)
 fi
 
-function nodes {
+function nodes() {
   if [ "$*" = "--watch" ]; then
     watch -- kubectl get nodes --label-columns='failure-domain.beta.kubernetes.io/zone' -o=wide
   else
@@ -24,7 +24,7 @@ function nodes {
   fi
 }
 
-function pods {
+function pods() {
   kubectl get pods --all-namespaces -o=wide
 }
 

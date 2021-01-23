@@ -6,7 +6,7 @@ alias bazel="bazelisk"
 export PATH="$HOME/workspace/bazel-watcher/bazel-bin/ibazel/linux_amd64_pure_stripped/:$PATH"
 export PATH="$HOME/workspace/bazel-watcher/bazel-bin/ibazel/darwin_amd64_pure_stripped/:$PATH"
 
-function qq {
+function qq() {
   # directory
   dir=$1
 
@@ -17,7 +17,7 @@ function qq {
   bazel test //$dir... ${@}
 }
 
-function qqq {
+function qqq() {
   # directory
   dir=$1
 

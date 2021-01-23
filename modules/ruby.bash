@@ -3,7 +3,7 @@
 export PATH="$HOME/.rbenv/bin:$PATH"
 
 if [ ! -f ~/.gemrc ]; then
-  echo 'gem: --no-document' > ~/.gemrc
+  echo 'gem: --no-document' >~/.gemrc
 fi
 
 if $(which rbenv >/dev/null); then
@@ -21,25 +21,24 @@ export RUBY_GC_HEAP_GROWTH_MAX_SLOTS=300000
 alias bundl="bundle"
 alias budnle="bundle"
 
-function rv {
+function rv() {
   ruby -v
 }
 
-function ignore_ruby_version {
-  echo '.ruby-version' >> .gitignore
+function ignore_ruby_version() {
+  echo '.ruby-version' >>.gitignore
   git add .gitignore
   git commit -m 'git ignore .ruby-version'
 }
 
-function zs {
-  if [ -f zeus-test-only.json ]
-  then
+function zs() {
+  if [ -f zeus-test-only.json ]; then
     zeus --config zeus-test-only.json start
   else
     zeus start
   fi
 }
 
-function zr {
+function zr() {
   zeus rspec $*
 }
