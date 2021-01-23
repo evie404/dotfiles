@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+export MAIN_REPO="block-party"
+
 # random functions to help with git operations. requires `twig` and `gitx` for some of them.
 
 # deletes origin then pushes back again. most useful when testing CI systems that don't support
