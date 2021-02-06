@@ -50,6 +50,11 @@ if $(which xdg-open >/dev/null); then
   alias open="xdg-open"
 fi
 
+if $(uname -a | grep Linux >/dev/null); then
+  alias pbcopy='xclip -selection clipboard'
+  alias pbpaste='xclip -selection clipboard -o'
+fi
+
 # edit the content in this directory
 function edit-bash() {
   code ${CURRENT_DIR}
