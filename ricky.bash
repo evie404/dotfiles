@@ -14,7 +14,7 @@ MODULES_DIR="${CURRENT_DIR}/modules"
 # directory helpers and vars loaded first since other things might depend on it
 [[ -s ${MODULES_DIR}/dirs.bash ]] && source ${MODULES_DIR}/dirs.bash
 
-eval "$(ssh-agent -s)"
+eval "$(ssh-agent -s)" > /dev/null
 # ssh-add
 
 [[ -s ${MODULES_DIR}/android.bash ]] && source ${MODULES_DIR}/android.bash
