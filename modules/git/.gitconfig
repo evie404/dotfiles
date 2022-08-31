@@ -102,8 +102,8 @@
 	theckout = checkout
 	tcehckoout = checkout
 [user]
-	name = Ricky Pai
-	email = rickyp999+github@gmail.com
+	name = Evie Pai
+	email = wowitsevelynwow+github@gmail.com
 [filter "lfs"]
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f

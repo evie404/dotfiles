@@ -12,6 +12,6 @@ function dotfiles() {
   cd ${CURRENT_DIR}/..
 }
 
-function rickypai() {
-  cd $GOPATH/src/github.com/rickypai
+function evie404() {
+  cd $GOPATH/src/github.com/evie404
 }
