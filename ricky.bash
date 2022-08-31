@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+[[ -s /opt/homebrew/bin/brew ]] && eval "$(/opt/homebrew/bin/brew shellenv)"
+
 function reload() {
   ${BASH_SOURCE[0]}
 }
