@@ -9,7 +9,7 @@ alias gir="git"
 alias gti="git"
 alias giot="git"
 
-# alias it="git"
+alias it="git"
 # git config --global alias.comit commit
 # git config --global alias.commmit commit
 # git config --global alias.commti commit
@@ -101,7 +101,7 @@ alias giot="git"
 # git config --global alias.tsubmodule submodule
 # git config --global alias.tsubmodules submodule
 
-# alias gits="git"
+alias gits="git"
 # git config --global alias.tatus status
 # git config --global alias.tuats status
 # git config --global alias.tuatt status
@@ -113,10 +113,10 @@ alias giot="git"
 # git config --global alias.ocmmit commit
 # git config --global alias.upsh push
 
-# alias gitp="git"
+alias gitp="git"
 # git config --global alias.ush push
 
-# alias giut="git"
+alias giut="git"
 # git config --global alias.puh push
 
 # twig aliases
