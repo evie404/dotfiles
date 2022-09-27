@@ -12,5 +12,5 @@ if $(which goenv >/dev/null); then
 fi
 
 function evie-cli() {
-  (cd ~/workspace/src/github.com/evie404/evie-cli && go run main.go)
+  go run ~/workspace/evie-cli/main.go
 }
