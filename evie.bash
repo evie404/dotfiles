@@ -18,7 +18,9 @@ MODULES_DIR="${CURRENT_DIR}/modules"
 [[ -s ${MODULES_DIR}/dirs.bash ]] && source ${MODULES_DIR}/dirs.bash
 
 eval "$(ssh-agent -s)" > /dev/null
+
 # ssh-add
+[[ -s ~/.ssh/id_ed25519_github ]] && ssh-add ~/.ssh/id_ed25519_github
 
 [[ -s ${MODULES_DIR}/android.bash ]] && source ${MODULES_DIR}/android.bash
 [[ -s ${MODULES_DIR}/bash-completions.bash ]] && source ${MODULES_DIR}/bash-completions.bash
