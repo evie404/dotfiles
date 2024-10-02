@@ -17,7 +17,7 @@ MODULES_DIR="${CURRENT_DIR}/modules"
 # directory helpers and vars loaded first since other things might depend on it
 [[ -s ${MODULES_DIR}/dirs.bash ]] && source ${MODULES_DIR}/dirs.bash
 
-eval "$(ssh-agent -s)" > /dev/null
+eval "$(ssh-agent -s)" >/dev/null
 
 # ssh-add
 [[ -s ~/.ssh/id_ed25519_github ]] && ssh-add ~/.ssh/id_ed25519_github
@@ -25,6 +25,7 @@ eval "$(ssh-agent -s)" > /dev/null
 [[ -s ${MODULES_DIR}/android.bash ]] && source ${MODULES_DIR}/android.bash
 [[ -s ${MODULES_DIR}/bash-completions.bash ]] && source ${MODULES_DIR}/bash-completions.bash
 [[ -s ${MODULES_DIR}/bazel.bash ]] && source ${MODULES_DIR}/bazel.bash
+[[ -s ${MODULES_DIR}/colors.bash ]] && source ${MODULES_DIR}/colors.bash
 [[ -s ${MODULES_DIR}/docker.bash ]] && source ${MODULES_DIR}/docker.bash
 [[ -s ${MODULES_DIR}/etcd.bash ]] && source ${MODULES_DIR}/etcd.bash
 [[ -s ${MODULES_DIR}/graphviz.bash ]] && source ${MODULES_DIR}/graphviz.bash
