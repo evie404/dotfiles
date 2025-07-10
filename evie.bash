@@ -27,6 +27,7 @@ eval "$(ssh-agent -s)" >/dev/null
 [[ -s ${MODULES_DIR}/bazel.bash ]] && source ${MODULES_DIR}/bazel.bash
 [[ -s ${MODULES_DIR}/colors.bash ]] && source ${MODULES_DIR}/colors.bash
 [[ -s ${MODULES_DIR}/docker.bash ]] && source ${MODULES_DIR}/docker.bash
+[[ -s ${MODULES_DIR}/docker.bash ]] && source ${MODULES_DIR}/dotnet.bash
 [[ -s ${MODULES_DIR}/etcd.bash ]] && source ${MODULES_DIR}/etcd.bash
 [[ -s ${MODULES_DIR}/graphviz.bash ]] && source ${MODULES_DIR}/graphviz.bash
 [[ -s ${MODULES_DIR}/golang.bash ]] && source ${MODULES_DIR}/golang.bash
