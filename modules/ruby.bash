@@ -6,7 +6,7 @@ if [ ! -f ~/.gemrc ]; then
   echo 'gem: --no-document' >~/.gemrc
 fi
 
-if $(which rbenv >/dev/null); then
+if $(which rbenv 2>/dev/null); then
   eval "$(rbenv init -)"
 fi
 

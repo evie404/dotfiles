@@ -7,7 +7,7 @@ export PATH=${GOPATH//://bin:}/bin:$PATH
 [[ -s "$HOME/.gvm/scripts/gvm" ]] && source "$HOME/.gvm/scripts/gvm"
 [[ -s "$HOME/.gvm/scripts/completion" ]] && source "$HOME/.gvm/scripts/completion"
 
-if $(which goenv >/dev/null); then
+if $(which goenv 2>/dev/null); then
   eval "$(goenv init -)"
 fi
 

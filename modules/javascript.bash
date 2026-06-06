@@ -11,7 +11,7 @@ fi
 
 export PATH=~/node_modules/.bin:$PATH
 
-if $(which yarn >/dev/null); then
+if $(which yarn 2>/dev/null); then
   export PATH="$PATH:$(yarn global bin)"
 fi
 

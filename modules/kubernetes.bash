@@ -8,11 +8,11 @@ alias ubectl="kubectl"
 alias ubect="kubectl"
 
 # Kubernetes
-if $(which kubectl >/dev/null); then
+if $(which kubectl 2>/dev/null); then
   source <(kubectl completion bash)
 fi
 
-if $(which helm >/dev/null); then
+if $(which helm 2>/dev/null); then
   source <(helm completion bash)
 fi
 
