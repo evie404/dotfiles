@@ -2,6 +2,12 @@
 
 export NVM_DIR="$HOME/.nvm"
 
+export PNPM_HOME="/home/eviedev/.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME/bin:"*) ;;
+  *) export PATH="$PNPM_HOME/bin:$PATH" ;;
+esac
+
 if [ -f /usr/local/opt/nvm/nvm.sh ]; then
   source "/usr/local/opt/nvm/nvm.sh"
 fi
