@@ -12,14 +12,6 @@ if $(which brew 2>/dev/null); then
 	if [ -f $(brew --prefix)/etc/bash_completion ]; then
 		. $(brew --prefix)/etc/bash_completion
 	fi
-
-	if [ -f $(brew --prefix)/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.bash.inc ]; then
-		. $(brew --prefix)/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.bash.inc
-	fi
-
-	if [ -f $(brew --prefix)/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.bash.inc ]; then
-		. $(brew --prefix)/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.bash.inc
-	fi
 fi
 
 # enable programmable completion features (you don't need to enable
@@ -32,6 +24,3 @@ if ! shopt -oq posix; then
 		. /etc/bash_completion
 	fi
 fi
-
-# twig
-[[ -s ~/.twig/twig-completion.bash ]] && source ~/.twig/twig-completion.bash

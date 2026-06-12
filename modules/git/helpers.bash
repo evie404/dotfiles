@@ -1,15 +1,8 @@
 #!/usr/bin/env bash
 
-export MAIN_REPO="block-party"
+export MAIN_REPO="lol"
 
 # random functions to help with git operations. requires `twig` and `gitx` for some of them.
-
-# deletes origin then pushes back again. most useful when testing CI systems that don't support
-# retries on the same branch.
-function repush() {
-	git push origin --delete $(git rev-parse --abbrev-ref HEAD)
-	git push
-}
 
 # checks out the last branch.
 function lb() {

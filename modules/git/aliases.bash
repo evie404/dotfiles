@@ -158,11 +158,3 @@ function giut_aliases() {
 	git config --global alias.puh push
 }
 giut_aliases
-
-# twig aliases
-
-alias tiwg="twig"
-
-function tw() {
-	twig
-}
