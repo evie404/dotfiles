@@ -38,6 +38,5 @@ eval "$(ssh-agent -s)" >/dev/null
 # [[ -s ${MODULES_DIR}/git/aliases.bash ]] && source "${MODULES_DIR}/git/aliases.bash"
 [[ -s ${MODULES_DIR}/git/helpers.bash ]] && source "${MODULES_DIR}/git/helpers.bash"
 
-
 # work-related stuff lives in a separate private git repo
 [[ -s ${WORKSPACE}/dotfiles-work/work.bash ]] && source "${WORKSPACE}/dotfiles-work/work.bash"
