@@ -9,23 +9,23 @@ alias ubect="kubectl"
 
 # Kubernetes
 if $(which kubectl 2>/dev/null); then
-  source <(kubectl completion bash)
+	source <(kubectl completion bash)
 fi
 
 if $(which helm 2>/dev/null); then
-  source <(helm completion bash)
+	source <(helm completion bash)
 fi
 
 function nodes() {
-  if [ "$*" = "--watch" ]; then
-    watch -- kubectl get nodes --label-columns='failure-domain.beta.kubernetes.io/zone' -o=wide
-  else
-    kubectl get nodes --label-columns='failure-domain.beta.kubernetes.io/zone' -o=wide
-  fi
+	if [ "$*" = "--watch" ]; then
+		watch -- kubectl get nodes --label-columns='failure-domain.beta.kubernetes.io/zone' -o=wide
+	else
+		kubectl get nodes --label-columns='failure-domain.beta.kubernetes.io/zone' -o=wide
+	fi
 }
 
 function pods() {
-  kubectl get pods --all-namespaces -o=wide
+	kubectl get pods --all-namespaces -o=wide
 }
 
 # function pod {

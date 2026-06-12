@@ -4,9 +4,9 @@ export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
 
 if $(which pyenv 2>/dev/null); then
-  if [[ $(which pyenv) != *"pyenv-win"* ]]; then
-    eval "$(pyenv init --path)"
+	if [[ $(which pyenv) != *"pyenv-win"* ]]; then
+		eval "$(pyenv init --path)"
 
-    eval "$(pyenv init -)"
-  fi
+		eval "$(pyenv init -)"
+	fi
 fi

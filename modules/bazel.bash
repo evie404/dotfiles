@@ -9,23 +9,23 @@ export PATH="$HOME/workspace/bazel-watcher/bazel-bin/ibazel/linux_amd64_stripped
 export PATH="$HOME/workspace/bazel-watcher/bazel-bin/ibazel/darwin_amd64_stripped/:$PATH"
 
 function qq() {
-  # directory
-  dir=$1
+	# directory
+	dir=$1
 
-  # assume rest of the arguments are flags for bazel
-  shift
+	# assume rest of the arguments are flags for bazel
+	shift
 
-  bazel run //:gazelle -- $dir
-  bazel test //$dir... ${@}
+	bazel run //:gazelle -- $dir
+	bazel test //$dir... ${@}
 }
 
 function qqq() {
-  # directory
-  dir=$1
+	# directory
+	dir=$1
 
-  # assume rest of the arguments are flags for bazel
-  shift
+	# assume rest of the arguments are flags for bazel
+	shift
 
-  bazel run //:gazelle -- $dir
-  bazel build //$dir... ${@}
+	bazel run //:gazelle -- $dir
+	bazel build //$dir... ${@}
 }

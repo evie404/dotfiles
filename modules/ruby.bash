@@ -3,11 +3,11 @@
 export PATH="$HOME/.rbenv/bin:$PATH"
 
 if [ ! -f ~/.gemrc ]; then
-  echo 'gem: --no-document' >~/.gemrc
+	echo 'gem: --no-document' >~/.gemrc
 fi
 
 if $(which rbenv 2>/dev/null); then
-  eval "$(rbenv init -)"
+	eval "$(rbenv init -)"
 fi
 
 export GEM_EDITOR="code"
@@ -22,23 +22,23 @@ alias bundl="bundle"
 alias budnle="bundle"
 
 function rv() {
-  ruby -v
+	ruby -v
 }
 
 function ignore_ruby_version() {
-  echo '.ruby-version' >>.gitignore
-  git add .gitignore
-  git commit -m 'git ignore .ruby-version'
+	echo '.ruby-version' >>.gitignore
+	git add .gitignore
+	git commit -m 'git ignore .ruby-version'
 }
 
 function zs() {
-  if [ -f zeus-test-only.json ]; then
-    zeus --config zeus-test-only.json start
-  else
-    zeus start
-  fi
+	if [ -f zeus-test-only.json ]; then
+		zeus --config zeus-test-only.json start
+	else
+		zeus start
+	fi
 }
 
 function zr() {
-  zeus rspec $*
+	zeus rspec $*
 }

@@ -8,9 +8,9 @@ export PATH=${GOPATH//://bin:}/bin:$PATH
 [[ -s "$HOME/.gvm/scripts/completion" ]] && source "$HOME/.gvm/scripts/completion"
 
 if $(which goenv 2>/dev/null); then
-  eval "$(goenv init -)"
+	eval "$(goenv init -)"
 fi
 
 function evie-cli() {
-  (cd ~/workspace/evie-cli && go run ./...)
+	(cd ~/workspace/evie-cli && go run ./...)
 }

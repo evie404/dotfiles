@@ -3,7 +3,7 @@
 [[ -s /opt/homebrew/bin/brew ]] && eval "$(/opt/homebrew/bin/brew shellenv)"
 
 function reload() {
-  ${BASH_SOURCE[0]}
+	${BASH_SOURCE[0]}
 }
 
 export PATH="$HOME/bin:$HOME/.local/bin:$PATH"
@@ -54,54 +54,54 @@ eval "$(ssh-agent -s)" >/dev/null
 [[ -s ${WORKSPACE}/dotfiles-work/work.bash ]] && source ${WORKSPACE}/dotfiles-work/work.bash
 
 if $(which xdg-open 2>/dev/null); then
-  alias open="xdg-open"
+	alias open="xdg-open"
 fi
 
 if $(uname -a | grep Linux >/dev/null); then
-  alias pbcopy='xclip -selection clipboard'
-  alias pbpaste='xclip -selection clipboard -o'
+	alias pbcopy='xclip -selection clipboard'
+	alias pbpaste='xclip -selection clipboard -o'
 fi
 
 # edit the content in this directory
 function edit-bash() {
-  code ${CURRENT_DIR}
+	code ${CURRENT_DIR}
 }
 
 # runs a simple HTTP file server against current directory
 function serveshit() {
-  python -m SimpleHTTPServer
+	python -m SimpleHTTPServer
 }
 
 # runs a command 5 times.
 # example: `5times echo hi`
 function 5times() {
-  for i in {1..5}; do
-    $*
-  done
+	for i in {1..5}; do
+		$*
+	done
 }
 
 # runs a command 10 times.
 # example: `10 times echo hi`
 function 10times() {
-  for i in {1..10}; do
-    $*
-  done
+	for i in {1..10}; do
+		$*
+	done
 }
 
 # curls an endpoint, gives back '<http code>:<total time>' format. useful for quickly checking
 # status code and latency.
 function curl_time() {
-  curl -o /dev/null -s -w %{http_code}:%{time_total}\\n $*
+	curl -o /dev/null -s -w %{http_code}:%{time_total}\\n $*
 }
 
 # converts yaml to json.
 # usage: `yaml2json <input file> <output file>`
 function yaml2json() {
-  ruby -ryaml -rjson -e 'puts JSON.pretty_generate(YAML.load(ARGF))' <$1 >$2
+	ruby -ryaml -rjson -e 'puts JSON.pretty_generate(YAML.load(ARGF))' <$1 >$2
 }
 
 # converts json to yaml.
 # usage: `json2yaml <input file> <output file>`
 function json2yaml() {
-  ruby -ryaml -rjson -e 'puts JSON.parse(ARGF.read).to_yaml' <$1 >$2
+	ruby -ryaml -rjson -e 'puts JSON.parse(ARGF.read).to_yaml' <$1 >$2
 }

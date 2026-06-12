@@ -37,11 +37,11 @@
 # of tests/benchmarks locally with 'bazel run'.
 
 _bazel_completion_use_query() {
-  _bazel__is_true "${BAZEL_COMPLETION_USE_QUERY}"
+	_bazel__is_true "${BAZEL_COMPLETION_USE_QUERY}"
 }
 
 _bazel_completion_allow_tests_for_run() {
-  _bazel__is_true "${BAZEL_COMPLETION_ALLOW_TESTS_FOR_RUN}"
+	_bazel__is_true "${BAZEL_COMPLETION_ALLOW_TESTS_FOR_RUN}"
 }
 # -*- sh -*- (Bash only)
 #
@@ -107,38 +107,37 @@ _bazel_completion_allow_tests_for_run() {
 # Usage: _bazel__get_rule_match_pattern <command>
 # Determine what kind of rules to match, based on command.
 _bazel__get_rule_match_pattern() {
-  local var_name pattern
-  if _bazel_completion_use_query; then
-    var_name="BAZEL_QUERY_MATCH_PATTERN"
-  else
-    var_name="BAZEL_BUILD_MATCH_PATTERN"
-  fi
-  if [[ "$1" =~ ^label-?([a-z]*)$ ]]; then
-    pattern=${BASH_REMATCH[1]:-}
-    if _bazel_completion_allow_tests_for_run; then
-      eval "echo \"\${${var_name}_RUNTEST__${pattern}:-\$${var_name}__${pattern}}\""
-    else
-      eval "echo \"\$${var_name}__${pattern}\""
-    fi
-  fi
+	local var_name pattern
+	if _bazel_completion_use_query; then
+		var_name="BAZEL_QUERY_MATCH_PATTERN"
+	else
+		var_name="BAZEL_BUILD_MATCH_PATTERN"
+	fi
+	if [[ "$1" =~ ^label-?([a-z]*)$ ]]; then
+		pattern=${BASH_REMATCH[1]:-}
+		if _bazel_completion_allow_tests_for_run; then
+			eval "echo \"\${${var_name}_RUNTEST__${pattern}:-\$${var_name}__${pattern}}\""
+		else
+			eval "echo \"\$${var_name}__${pattern}\""
+		fi
+	fi
 }
 
 # Compute workspace directory. Search for the innermost
 # enclosing directory with a WORKSPACE file.
 _bazel__get_workspace_path() {
-  local workspace=$PWD
-  while true; do
-    if [ -f "${workspace}/WORKSPACE" ]; then
-      break
-    elif [ -z "$workspace" -o "$workspace" = "/" ]; then
-      workspace=$PWD
-      break;
-    fi
-    workspace=${workspace%/*}
-  done
-  echo $workspace
+	local workspace=$PWD
+	while true; do
+		if [ -f "${workspace}/WORKSPACE" ]; then
+			break
+		elif [ -z "$workspace" -o "$workspace" = "/" ]; then
+			workspace=$PWD
+			break
+		fi
+		workspace=${workspace%/*}
+	done
+	echo $workspace
 }
-
 
 # Find the current piece of the line to complete, but only do word breaks at
 # certain characters. In particular, ignore these: "':=
@@ -148,19 +147,18 @@ _bazel__get_workspace_path() {
 # computing the COMP_WORDS array. We need this here because Bazel options are of
 # the form --a=b, and labels of the form //some/label:target.
 _bazel__get_cword() {
-  local cur=${COMP_LINE:0:$COMP_POINT}
-  # This expression finds the last word break character, as defined in the
-  # COMP_WORDBREAKS variable, but without '=' or ':', which is not preceeded by
-  # a slash. Quote characters are also excluded.
-  local wordbreaks="$COMP_WORDBREAKS"
-  wordbreaks="${wordbreaks//\'/}"
-  wordbreaks="${wordbreaks//\"/}"
-  wordbreaks="${wordbreaks//:/}"
-  wordbreaks="${wordbreaks//=/}"
-  local word_start=$(expr "$cur" : '.*[^\]['"${wordbreaks}"']')
-  echo "${cur:$word_start}"
+	local cur=${COMP_LINE:0:$COMP_POINT}
+	# This expression finds the last word break character, as defined in the
+	# COMP_WORDBREAKS variable, but without '=' or ':', which is not preceeded by
+	# a slash. Quote characters are also excluded.
+	local wordbreaks="$COMP_WORDBREAKS"
+	wordbreaks="${wordbreaks//\'/}"
+	wordbreaks="${wordbreaks//\"/}"
+	wordbreaks="${wordbreaks//:/}"
+	wordbreaks="${wordbreaks//=/}"
+	local word_start=$(expr "$cur" : '.*[^\]['"${wordbreaks}"']')
+	echo "${cur:$word_start}"
 }
-
 
 # Usage: _bazel__package_path <workspace> <displacement>
 #
@@ -168,35 +166,35 @@ _bazel__get_cword() {
 # current displacement from the workspace.  All elements have a
 # trailing slash.
 _bazel__package_path() {
-  local workspace=$1 displacement=$2 root
-  IFS=:
-  for root in ${BAZEL_COMPLETION_PACKAGE_PATH//\%workspace\%/$workspace}; do
-    unset IFS
-    echo "$root/$displacement"
-  done
+	local workspace=$1 displacement=$2 root
+	IFS=:
+	for root in ${BAZEL_COMPLETION_PACKAGE_PATH//\%workspace\%/$workspace}; do
+		unset IFS
+		echo "$root/$displacement"
+	done
 }
 
 # Usage: _bazel__options_for <command>
 #
 # Prints the set of options for a given Bazel command, e.g. "build".
 _bazel__options_for() {
-  local options
-  if [[ "${BAZEL_COMMAND_LIST}" =~ ^(.* )?$1( .*)?$ ]]; then
-      # assumes option names only use ASCII characters
-      local option_name=$(echo $1 | tr a-z A-Z | tr "-" "_")
-      eval "echo \${BAZEL_COMMAND_${option_name}_FLAGS}" | tr " " "\n"
-  fi
+	local options
+	if [[ "${BAZEL_COMMAND_LIST}" =~ ^(.* )?$1( .*)?$ ]]; then
+		# assumes option names only use ASCII characters
+		local option_name=$(echo $1 | tr a-z A-Z | tr "-" "_")
+		eval "echo \${BAZEL_COMMAND_${option_name}_FLAGS}" | tr " " "\n"
+	fi
 }
 # Usage: _bazel__expansion_for <command>
 #
 # Prints the completion pattern for a given Bazel command, e.g. "build".
 _bazel__expansion_for() {
-  local options
-  if [[ "${BAZEL_COMMAND_LIST}" =~ ^(.* )?$1( .*)?$ ]]; then
-      # assumes option names only use ASCII characters
-      local option_name=$(echo $1 | tr a-z A-Z | tr "-" "_")
-      eval "echo \${BAZEL_COMMAND_${option_name}_ARGUMENT}"
-  fi
+	local options
+	if [[ "${BAZEL_COMMAND_LIST}" =~ ^(.* )?$1( .*)?$ ]]; then
+		# assumes option names only use ASCII characters
+		local option_name=$(echo $1 | tr a-z A-Z | tr "-" "_")
+		eval "echo \${BAZEL_COMMAND_${option_name}_ARGUMENT}"
+	fi
 }
 
 # Usage: _bazel__matching_targets <kind> <prefix>
@@ -205,31 +203,30 @@ _bazel__expansion_for() {
 # file given as standard input.  <kind> is a basic regex (BRE) used to match the
 # bazel rule kind and <prefix> is the prefix of the target name.
 _bazel__matching_targets() {
-  local kind_pattern="$1"
-  local target_prefix="$2"
-  # The following commands do respectively:
-  #   Remove BUILD file comments
-  #   Replace \n by spaces to have the BUILD file in a single line
-  #   Extract all rule types and target names
-  #   Grep the kind pattern and the target prefix
-  #   Returns the target name
-  sed 's/#.*$//' \
-      | tr "\n" " " \
-      | sed 's/\([a-zA-Z0-9_]*\) *(\([^)]* \)\{0,1\}name *= *['\''"]\([a-zA-Z0-9_/.+=,@~-]*\)['\''"][^)]*)/\
+	local kind_pattern="$1"
+	local target_prefix="$2"
+	# The following commands do respectively:
+	#   Remove BUILD file comments
+	#   Replace \n by spaces to have the BUILD file in a single line
+	#   Extract all rule types and target names
+	#   Grep the kind pattern and the target prefix
+	#   Returns the target name
+	sed 's/#.*$//' |
+		tr "\n" " " |
+		sed 's/\([a-zA-Z0-9_]*\) *(\([^)]* \)\{0,1\}name *= *['\''"]\([a-zA-Z0-9_/.+=,@~-]*\)['\''"][^)]*)/\
 type:\1 name:\3\
-/g' \
-      | "grep" -E "^type:$kind_pattern name:$target_prefix" \
-      | cut -d ':' -f 3
+/g' |
+		"grep" -E "^type:$kind_pattern name:$target_prefix" |
+		cut -d ':' -f 3
 }
-
 
 # Usage: _bazel__is_true <string>
 #
 # Returns true or false based on the input string. The following are
 # valid true values (the rest are false): "1", "true".
 _bazel__is_true() {
-  local str="$1"
-  [[ "$str" == "1" || "$str" == "true" ]]
+	local str="$1"
+	[[ "$str" == "1" || "$str" == "true" ]]
 }
 
 # Usage: _bazel__expand_rules_in_package <workspace> <displacement>
@@ -245,44 +242,44 @@ _bazel__is_true() {
 # $BAZEL_COMPLETION_PACKAGE_PATH is ignored in this case, since the actual Bazel
 # value is likely to be more accurate.
 _bazel__expand_rules_in_package() {
-  local workspace=$1 displacement=$2 current=$3 label_type=$4
-  local package_name=$(echo "$current" | cut -f1 -d:)
-  local rule_prefix=$(echo "$current" | cut -f2 -d:)
-  local root buildfile rule_pattern r result
+	local workspace=$1 displacement=$2 current=$3 label_type=$4
+	local package_name=$(echo "$current" | cut -f1 -d:)
+	local rule_prefix=$(echo "$current" | cut -f2 -d:)
+	local root buildfile rule_pattern r result
 
-  result=
-  pattern=$(_bazel__get_rule_match_pattern "$label_type")
-  if _bazel_completion_use_query; then
-    package_name=$(echo "$package_name" | tr -d "'\"") # remove quotes
-    result=$(${BAZEL} --output_base=/tmp/${BAZEL}-completion-$USER query \
-                   --keep_going --noshow_progress --output=label \
-      "kind('$pattern rule', '$package_name:*')" 2>/dev/null |
-      cut -f2 -d: | "grep" "^$rule_prefix")
-  else
-    for root in $(_bazel__package_path "$workspace" "$displacement"); do
-      buildfile="$root/$package_name/BUILD.bazel"
-      if [ ! -f "$buildfile" ]; then
-        buildfile="$root/$package_name/BUILD"
-      fi
-      if [ -f "$buildfile" ]; then
-        result=$(_bazel__matching_targets \
-                   "$pattern" "$rule_prefix" <"$buildfile")
-        break
-      fi
-    done
-  fi
+	result=
+	pattern=$(_bazel__get_rule_match_pattern "$label_type")
+	if _bazel_completion_use_query; then
+		package_name=$(echo "$package_name" | tr -d "'\"") # remove quotes
+		result=$(${BAZEL} --output_base=/tmp/${BAZEL}-completion-$USER query \
+			--keep_going --noshow_progress --output=label \
+			"kind('$pattern rule', '$package_name:*')" 2>/dev/null |
+			cut -f2 -d: | "grep" "^$rule_prefix")
+	else
+		for root in $(_bazel__package_path "$workspace" "$displacement"); do
+			buildfile="$root/$package_name/BUILD.bazel"
+			if [ ! -f "$buildfile" ]; then
+				buildfile="$root/$package_name/BUILD"
+			fi
+			if [ -f "$buildfile" ]; then
+				result=$(_bazel__matching_targets \
+					"$pattern" "$rule_prefix" <"$buildfile")
+				break
+			fi
+		done
+	fi
 
-  index=$(echo $result | wc -w)
-  if [ -n "$result" ]; then
-      echo "$result" | tr " " "\n" | sed 's|$| |'
-  fi
-  # Include ":all" wildcard if there was no unique match.  (The zero
-  # case is tricky: we need to include "all" in that case since
-  # otherwise we won't expand "a" to "all" in the absence of rules
-  # starting with "a".)
-  if [ $index -ne 1 ] && expr all : "\\($rule_prefix\\)" >/dev/null; then
-    echo "all "
-  fi
+	index=$(echo $result | wc -w)
+	if [ -n "$result" ]; then
+		echo "$result" | tr " " "\n" | sed 's|$| |'
+	fi
+	# Include ":all" wildcard if there was no unique match.  (The zero
+	# case is tricky: we need to include "all" in that case since
+	# otherwise we won't expand "a" to "all" in the absence of rules
+	# starting with "a".)
+	if [ $index -ne 1 ] && expr all : "\\($rule_prefix\\)" >/dev/null; then
+		echo "all "
+	fi
 }
 
 # Usage: _bazel__expand_package_name <workspace> <displacement> <current-word>
@@ -294,24 +291,24 @@ _bazel__expand_rules_in_package() {
 # inside the package.
 # Sets $COMPREPLY array to result.
 _bazel__expand_package_name() {
-  local workspace=$1 displacement=$2 current=$3 type=${4:-} root dir index
-  for root in $(_bazel__package_path "$workspace" "$displacement"); do
-    found=0
-    for dir in $(compgen -d $root$current); do
-      [ -L "$dir" ] && continue  # skip symlinks (e.g. bazel-bin)
-      [[ "$dir" =~ ^(.*/)?\.[^/]*$ ]] && continue  # skip dotted dir (e.g. .git)
-      found=1
-      echo "${dir#$root}/"
-      if [ -f $dir/BUILD.bazel -o -f $dir/BUILD ]; then
-        if [ "${type}" = "label-package" ]; then
-          echo "${dir#$root} "
-        else
-          echo "${dir#$root}:"
-        fi
-      fi
-    done
-    [ $found -gt 0 ] && break  # Stop searching package path upon first match.
-  done
+	local workspace=$1 displacement=$2 current=$3 type=${4:-} root dir index
+	for root in $(_bazel__package_path "$workspace" "$displacement"); do
+		found=0
+		for dir in $(compgen -d $root$current); do
+			[ -L "$dir" ] && continue                   # skip symlinks (e.g. bazel-bin)
+			[[ "$dir" =~ ^(.*/)?\.[^/]*$ ]] && continue # skip dotted dir (e.g. .git)
+			found=1
+			echo "${dir#$root}/"
+			if [ -f $dir/BUILD.bazel -o -f $dir/BUILD ]; then
+				if [ "${type}" = "label-package" ]; then
+					echo "${dir#$root} "
+				else
+					echo "${dir#$root}:"
+				fi
+			fi
+		done
+		[ $found -gt 0 ] && break # Stop searching package path upon first match.
+	done
 }
 
 # Usage: _bazel__expand_target_pattern <workspace> <displacement>
@@ -321,50 +318,49 @@ _bazel__expand_package_name() {
 # and displacement from it.  "command" is used to filter rules.
 # Sets $COMPREPLY array to result.
 _bazel__expand_target_pattern() {
-  local workspace=$1 displacement=$2 current=$3 label_syntax=$4
-  case "$current" in
-    //*:*) # Expand rule names within package, no displacement.
-      if [ "${label_syntax}" = "label-package" ]; then
-        compgen -S " " -W "BUILD" "$(echo current | cut -f ':' -d2)"
-      else
-        _bazel__expand_rules_in_package "$workspace" "" "$current" "$label_syntax"
-      fi
-      ;;
-    *:*) # Expand rule names within package, displaced.
-      if [ "${label_syntax}" = "label-package" ]; then
-        compgen -S " " -W "BUILD" "$(echo current | cut -f ':' -d2)"
-      else
-        _bazel__expand_rules_in_package \
-          "$workspace" "$displacement" "$current" "$label_syntax"
-      fi
-      ;;
-    //*) # Expand filenames using package-path, no displacement
-      _bazel__expand_package_name "$workspace" "" "$current" "$label_syntax"
-      ;;
-    *) # Expand filenames using package-path, displaced.
-      if [ -n "$current" ]; then
-        _bazel__expand_package_name "$workspace" "$displacement" "$current" "$label_syntax"
-      fi
-      ;;
-  esac
+	local workspace=$1 displacement=$2 current=$3 label_syntax=$4
+	case "$current" in
+	//*:*) # Expand rule names within package, no displacement.
+		if [ "${label_syntax}" = "label-package" ]; then
+			compgen -S " " -W "BUILD" "$(echo current | cut -f ':' -d2)"
+		else
+			_bazel__expand_rules_in_package "$workspace" "" "$current" "$label_syntax"
+		fi
+		;;
+	*:*) # Expand rule names within package, displaced.
+		if [ "${label_syntax}" = "label-package" ]; then
+			compgen -S " " -W "BUILD" "$(echo current | cut -f ':' -d2)"
+		else
+			_bazel__expand_rules_in_package \
+				"$workspace" "$displacement" "$current" "$label_syntax"
+		fi
+		;;
+	//*) # Expand filenames using package-path, no displacement
+		_bazel__expand_package_name "$workspace" "" "$current" "$label_syntax"
+		;;
+	*) # Expand filenames using package-path, displaced.
+		if [ -n "$current" ]; then
+			_bazel__expand_package_name "$workspace" "$displacement" "$current" "$label_syntax"
+		fi
+		;;
+	esac
 }
 
 _bazel__get_command() {
-  for word in "${COMP_WORDS[@]:1:COMP_CWORD-1}"; do
-    if echo "$BAZEL_COMMAND_LIST" | "grep" -wsq -e "$word"; then
-      echo $word
-      break
-    fi
-  done
+	for word in "${COMP_WORDS[@]:1:COMP_CWORD-1}"; do
+		if echo "$BAZEL_COMMAND_LIST" | "grep" -wsq -e "$word"; then
+			echo $word
+			break
+		fi
+	done
 }
 
 # Returns the displacement to the workspace given in $1
 _bazel__get_displacement() {
-  if [[ "$PWD" =~ ^$1/.*$ ]]; then
-    echo ${PWD##$1/}/
-  fi
+	if [[ "$PWD" =~ ^$1/.*$ ]]; then
+		echo ${PWD##$1/}/
+	fi
 }
-
 
 # Usage: _bazel__complete_pattern <workspace> <displacement> <current>
 #                                 <type>
@@ -379,29 +375,29 @@ _bazel__get_displacement() {
 #  - path: a file path
 #  - combinaison of previous type using | as separator
 _bazel__complete_pattern() {
-  local workspace=$1 displacement=$2 current=$3 types=$4
-  for type in $(echo $types | tr "|" "\n"); do
-    case "$type" in
-      label*)
-        _bazel__expand_target_pattern "$workspace" "$displacement" \
-            "$current" "$type"
-        ;;
-      info-key)
-    compgen -S " " -W "${BAZEL_INFO_KEYS}" -- "$current"
-        ;;
-      "command")
-        local commands=$(echo "${BAZEL_COMMAND_LIST}" \
-          | tr " " "\n" | "grep" -v "^${BAZEL_IGNORED_COMMAND_REGEX}$")
-    compgen -S " " -W "${commands}" -- "$current"
-        ;;
-      path)
-        compgen -f -- "$current"
-        ;;
-      *)
-        compgen -S " " -W "$type" -- "$current"
-        ;;
-    esac
-  done
+	local workspace=$1 displacement=$2 current=$3 types=$4
+	for type in $(echo $types | tr "|" "\n"); do
+		case "$type" in
+		label*)
+			_bazel__expand_target_pattern "$workspace" "$displacement" \
+				"$current" "$type"
+			;;
+		info-key)
+			compgen -S " " -W "${BAZEL_INFO_KEYS}" -- "$current"
+			;;
+		"command")
+			local commands=$(echo "${BAZEL_COMMAND_LIST}" |
+				tr " " "\n" | "grep" -v "^${BAZEL_IGNORED_COMMAND_REGEX}$")
+			compgen -S " " -W "${commands}" -- "$current"
+			;;
+		path)
+			compgen -f -- "$current"
+			;;
+		*)
+			compgen -S " " -W "$type" -- "$current"
+			;;
+		esac
+	done
 }
 
 # Usage: _bazel__expand_options <workspace> <displacement> <current-word>
@@ -410,89 +406,88 @@ _bazel__complete_pattern() {
 # Expands options, making sure that if current-word contains an equals sign,
 # it is handled appropriately.
 _bazel__expand_options() {
-  local workspace="$1" displacement="$2" cur="$3" options="$4"
-  if [[ $cur =~ = ]]; then
-    # also expands special labels
-    current=$(echo "$cur" | cut -f2 -d=)
-    _bazel__complete_pattern "$workspace" "$displacement" "$current" \
-    "$(compgen -W "$options" -- "$cur" | cut -f2 -d=)" \
-        | sort -u
-  else
-    compgen -W "$(echo "$options" | sed 's|=.*$|=|')" -- "$cur" \
-    | sed 's|\([^=]\)$|\1 |'
-  fi
+	local workspace="$1" displacement="$2" cur="$3" options="$4"
+	if [[ $cur =~ = ]]; then
+		# also expands special labels
+		current=$(echo "$cur" | cut -f2 -d=)
+		_bazel__complete_pattern "$workspace" "$displacement" "$current" \
+			"$(compgen -W "$options" -- "$cur" | cut -f2 -d=)" |
+			sort -u
+	else
+		compgen -W "$(echo "$options" | sed 's|=.*$|=|')" -- "$cur" |
+			sed 's|\([^=]\)$|\1 |'
+	fi
 }
 
-
 _bazel__complete_stdout() {
-  local cur=$(_bazel__get_cword) word command displacement workspace
+	local cur=$(_bazel__get_cword) word command displacement workspace
 
-  # Determine command: "" (startup-options) or one of $BAZEL_COMMAND_LIST.
-  command="$(_bazel__get_command)"
+	# Determine command: "" (startup-options) or one of $BAZEL_COMMAND_LIST.
+	command="$(_bazel__get_command)"
 
-  workspace="$(_bazel__get_workspace_path)"
-  displacement="$(_bazel__get_displacement ${workspace})"
+	workspace="$(_bazel__get_workspace_path)"
+	displacement="$(_bazel__get_displacement ${workspace})"
 
-  case "$command" in
-    "") # Expand startup-options or commands
-      local commands=$(echo "${BAZEL_COMMAND_LIST}" \
-        | tr " " "\n" | "grep" -v "^${BAZEL_IGNORED_COMMAND_REGEX}$")
-      _bazel__expand_options  "$workspace" "$displacement" "$cur" \
-          "${commands}\
+	case "$command" in
+	"") # Expand startup-options or commands
+		local commands=$(echo "${BAZEL_COMMAND_LIST}" |
+			tr " " "\n" | "grep" -v "^${BAZEL_IGNORED_COMMAND_REGEX}$")
+		_bazel__expand_options "$workspace" "$displacement" "$cur" \
+			"${commands}\
           ${BAZEL_STARTUP_OPTIONS}"
-      ;;
+		;;
 
-    *)
-      case "$cur" in
-        -*) # Expand options:
-          _bazel__expand_options  "$workspace" "$displacement" "$cur" \
-              "$(_bazel__options_for $command)"
-          ;;
-        *)  # Expand target pattern
-      expansion_pattern="$(_bazel__expansion_for $command)"
-          NON_QUOTE_REGEX="^[\"']"
-          if [[ $command = query && $cur =~ $NON_QUOTE_REGEX ]]; then
-            : # Ideally we would expand query expressions---it's not
-              # that hard, conceptually---but readline is just too
-              # damn complex when it comes to quotation.  Instead,
-              # for query, we just expand target patterns, unless
-              # the first char is a quote.
-          elif [ -n "$expansion_pattern" ]; then
-            _bazel__complete_pattern \
-        "$workspace" "$displacement" "$cur" "$expansion_pattern"
-          fi
-          ;;
-      esac
-      ;;
-  esac
+	*)
+		case "$cur" in
+		-*) # Expand options:
+			_bazel__expand_options "$workspace" "$displacement" "$cur" \
+				"$(_bazel__options_for $command)"
+			;;
+		*) # Expand target pattern
+			expansion_pattern="$(_bazel__expansion_for $command)"
+			NON_QUOTE_REGEX="^[\"']"
+			if [[ $command = query && $cur =~ $NON_QUOTE_REGEX ]]; then
+				: # Ideally we would expand query expressions---it's not
+				# that hard, conceptually---but readline is just too
+				# damn complex when it comes to quotation.  Instead,
+				# for query, we just expand target patterns, unless
+				# the first char is a quote.
+			elif [ -n "$expansion_pattern" ]; then
+				_bazel__complete_pattern \
+					"$workspace" "$displacement" "$cur" "$expansion_pattern"
+			fi
+			;;
+		esac
+		;;
+	esac
 }
 
 _bazel__to_compreply() {
-  local replies="$1"
-  COMPREPLY=()
-  # Trick to preserve whitespaces
-  while IFS="" read -r reply; do
-    COMPREPLY+=("${reply}")
-  done < <(echo "${replies}")
+	local replies="$1"
+	COMPREPLY=()
+	# Trick to preserve whitespaces
+	while IFS="" read -r reply; do
+		COMPREPLY+=("${reply}")
+	done < <(echo "${replies}")
 }
 
 _bazel__complete() {
-  _bazel__to_compreply "$(_bazel__complete_stdout)"
+	_bazel__to_compreply "$(_bazel__complete_stdout)"
 }
 
 # Some users have aliases such as bt="bazel test" or bb="bazel build", this
 # completion function allows them to have auto-completion for these aliases.
 _bazel__complete_target_stdout() {
-  local cur=$(_bazel__get_cword) word command displacement workspace
+	local cur=$(_bazel__get_cword) word command displacement workspace
 
-  # Determine command: "" (startup-options) or one of $BAZEL_COMMAND_LIST.
-  command="$1"
+	# Determine command: "" (startup-options) or one of $BAZEL_COMMAND_LIST.
+	command="$1"
 
-  workspace="$(_bazel__get_workspace_path)"
-  displacement="$(_bazel__get_displacement ${workspace})"
+	workspace="$(_bazel__get_workspace_path)"
+	displacement="$(_bazel__get_displacement ${workspace})"
 
-  _bazel__to_compreply "$(_bazel__expand_target_pattern "$workspace" "$displacement" \
-      "$cur" "$(_bazel__expansion_for $command)")"
+	_bazel__to_compreply "$(_bazel__expand_target_pattern "$workspace" "$displacement" \
+		"$cur" "$(_bazel__expansion_for $command)")"
 }
 
 # default completion for bazel

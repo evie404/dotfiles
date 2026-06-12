@@ -4,12 +4,12 @@ export NVM_DIR="$HOME/.nvm"
 
 export PNPM_HOME="/home/eviedev/.local/share/pnpm"
 case ":$PATH:" in
-  *":$PNPM_HOME/bin:"*) ;;
-  *) export PATH="$PNPM_HOME/bin:$PATH" ;;
+*":$PNPM_HOME/bin:"*) ;;
+*) export PATH="$PNPM_HOME/bin:$PATH" ;;
 esac
 
 if [ -f /usr/local/opt/nvm/nvm.sh ]; then
-  source "/usr/local/opt/nvm/nvm.sh"
+	source "/usr/local/opt/nvm/nvm.sh"
 fi
 
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"                   # This loads nvm
@@ -18,7 +18,7 @@ fi
 export PATH=~/node_modules/.bin:$PATH
 
 if $(which yarn 2>/dev/null); then
-  export PATH="$PATH:$(yarn global bin)"
+	export PATH="$PATH:$(yarn global bin)"
 fi
 
 # bun
