@@ -8,7 +8,7 @@ function reload() {
 }
 
 export PATH="$HOME/bin:$HOME/.local/bin:$PATH"
-export EDITOR="vi"
+export EDITOR="vim"
 GPG_TTY=$(tty)
 export GPG_TTY
 export BASH_SILENCE_DEPRECATION_WARNING=1
